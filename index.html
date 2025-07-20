@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,581 +16,470 @@
             --accent-green: #7A8B6B;
         }
 
-        /* Tumblr NPF color classes */
-        .npf_color_monica { color: #ff8a00 !important; }
-        .npf_color_rachel { color: #00b8ff !important; }
-        .npf_color_niles { color: #ff62cd !important; }
-        .npf_color_joey { color: #ff4930 !important; }
-        .npf_color_chandler { color: #7c5cff !important; }
-        .npf_color_ross { color: #00cf35 !important; }
+/* Tumblr NPF color classes */
+.npf_color_monica { color: #ff8a00 !important; }
+.npf_color_rachel { color: #00b8ff !important; }
+.npf_color_niles { color: #ff62cd !important; }
+.npf_color_joey { color: #ff4930 !important; }
+.npf_color_chandler { color: #7c5cff !important; }
+.npf_color_ross { color: #00cf35 !important; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+```
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--soft-white) 0%, var(--cream) 100%);
-            color: var(--dark-text);
-            line-height: 1.4;
-            padding: 0.8rem;
-            font-size: 14px;
-        }
+    body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(135deg, var(--soft-white) 0%, var(--cream) 100%);
+        color: var(--dark-text);
+        line-height: 1.6;
+        padding: 2rem 1rem;
+    }
 
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 8px 25px rgba(156, 175, 136, 0.15);
+    }
+
+    h1 {
+        font-family: 'Crimson Text', serif;
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: var(--accent-green);
+        text-align: center;
+        margin-bottom: 1rem;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.5rem;
+        color: var(--dark-text);
+        margin: 2rem 0 1rem 0;
+    }
+
+    .story-section {
+        margin: 2rem 0;
+        border: 1px solid var(--light-sage);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(156, 175, 136, 0.1);
+    }
+
+    .story-header {
+        background: linear-gradient(135deg, var(--light-sage), var(--sage-green));
+        padding: 1rem 1.5rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .story-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .story-header:hover::before {
+        left: 100%;
+    }
+
+    .story-header:hover {
+        background: linear-gradient(135deg, var(--sage-green), var(--accent-green));
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(156, 175, 136, 0.3);
+    }
+```
+
+.story-title {
+font-family: ‘Crimson Text’, serif;
+font-size: 1.4rem;
+font-weight: 600;
+color: var(–dark-text);
+text-shadow: none;
+z-index: 2;
+position: relative;
+background: white;
+padding: 0.5rem 1rem;
+border-radius: 8px;
+border: 2px solid var(–sage-green);
+box-shadow: 0 2px 8px rgba(156, 175, 136, 0.2);
+}
+
+```
+    .story-arrow {
+        font-size: 1.2rem;
+        color: white;
+        transition: transform 0.3s ease;
+        z-index: 2;
+        position: relative;
+    }
+
+    .story-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        background: var(--soft-white);
+    }
+
+    .story-content.open {
+        max-height: none;
+    }
+
+    .story-content-inner {
+        padding: 1.5rem;
+    }
+
+    .general-section {
+        background: rgba(184, 197, 166, 0.1);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        border-left: 4px solid var(--sage-green);
+    }
+
+    p {
+        margin-bottom: 1rem;
+    }
+
+    small {
+        font-size: 0.9rem;
+    }
+
+    b, strong {
+        font-weight: 600;
+    }
+
+    ul {
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+
+
+    /* Custom colors */
+    [style*="color: #8b1b08"] { color: #8b1b08 !important; }
+    [style*="color: #d034d2"] { color: #d034d2 !important; }
+    [style*="color: #f8bdd9"] { color: #f8bdd9 !important; }
+
+    @media (max-width: 768px) {
         .container {
-            max-width: 100%;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 12px;
             padding: 1rem;
-            box-shadow: 0 6px 20px rgba(156, 175, 136, 0.15);
-            backdrop-filter: blur(10px);
         }
-
+        
         h1 {
-            font-family: 'Crimson Text', serif;
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--accent-green);
-            text-align: center;
-            margin-bottom: 0.5rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            font-size: 2rem;
         }
-
-        h2 {
-            font-family: 'Crimson Text', serif;
-            font-size: 1.2rem;
-            color: var(--dark-text);
-            margin: 1rem 0 0.5rem 0;
-        }
-
-        .story-section {
-            margin: 0.8rem 0;
-            border: 1px solid var(--light-sage);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(156, 175, 136, 0.1);
-        }
-
+        
         .story-header {
-            background: linear-gradient(135deg, var(--light-sage), var(--sage-green));
             padding: 0.8rem 1rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            min-height: 44px;
         }
-
-        .story-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .story-header:hover::before {
-            left: 100%;
-        }
-
-        .story-header:hover {
-            background: linear-gradient(135deg, var(--sage-green), var(--accent-green));
-            transform: translateY(-1px);
-            box-shadow: 0 4px 15px rgba(156, 175, 136, 0.25);
-        }
-
+        
         .story-title {
-            font-family: 'Crimson Text', serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--dark-text);
-            text-shadow: none;
-            z-index: 2;
-            position: relative;
-            background: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            border: 2px solid var(--sage-green);
-            box-shadow: 0 2px 6px rgba(156, 175, 136, 0.2);
-            flex-grow: 1;
-            text-align: center;
-            margin-right: 0.8rem;
+            font-size: 1.2rem;
         }
+    }
+</style>
+```
 
-        .story-arrow {
-            font-size: 1rem;
-            color: white;
-            transition: transform 0.3s ease;
-            z-index: 2;
-            position: relative;
-            background: rgba(255,255,255,0.2);
-            padding: 0.3rem 0.5rem;
-            border-radius: 50%;
-            min-width: 30px;
-            text-align: center;
-        }
-
-        .story-arrow.rotated {
-            transform: rotate(180deg);
-        }
-
-        .story-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            background: var(--soft-white);
-        }
-
-        .story-content.open {
-            max-height: 2000px;
-        }
-
-        .story-content-inner {
-            padding: 1rem;
-            font-size: 13px;
-            line-height: 1.5;
-        }
-
-        .general-section {
-            background: rgba(184, 197, 166, 0.1);
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-left: 4px solid var(--sage-green);
-            font-size: 13px;
-        }
-
-        .spoiler-section {
-            background: rgba(139, 27, 8, 0.1);
-            border: 2px solid #8b1b08;
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 1rem 0;
-            position: relative;
-        }
-
-        .spoiler-header {
-            background: #8b1b08;
-            color: white;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            border-radius: 6px;
-            margin-bottom: 0.5rem;
-            text-align: center;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .spoiler-header:hover {
-            background: #a31e0a;
-            transform: translateY(-1px);
-        }
-
-        .spoiler-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .spoiler-content.open {
-            max-height: 1000px;
-        }
-
-        .spoiler-content-inner {
-            padding-top: 0.5rem;
-            font-size: 13px;
-        }
-
-        p {
-            margin-bottom: 0.8rem;
-        }
-
-        small {
-            font-size: 0.85rem;
-        }
-
-        b, strong {
-            font-weight: 600;
-        }
-
-        ul {
-            margin-left: 1.2rem;
-            margin-bottom: 0.8rem;
-        }
-
-        li {
-            margin-bottom: 0.3rem;
-        }
-
-        /* Custom colors */
-        [style*="color: #8b1b08"] { color: #8b1b08 !important; }
-        [style*="color: #d034d2"] { color: #d034d2 !important; }
-        [style*="color: #f8bdd9"] { color: #f8bdd9 !important; }
-
-        .grid-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.8rem;
-            margin: 1rem 0;
-        }
-
-        @media (max-width: 430px) {
-            body {
-                padding: 0.5rem;
-                font-size: 13px;
-            }
-            
-            .container {
-                padding: 0.8rem;
-            }
-            
-            h1 {
-                font-size: 1.6rem;
-            }
-            
-            .story-header {
-                padding: 0.6rem 0.8rem;
-                min-height: 40px;
-            }
-            
-            .story-title {
-                font-size: 1rem;
-                padding: 0.3rem 0.6rem;
-                margin-right: 0.6rem;
-            }
-            
-            .story-content-inner {
-                padding: 0.8rem;
-                font-size: 12px;
-            }
-            
-            .general-section {
-                padding: 0.8rem;
-                font-size: 12px;
-            }
-
-            .grid-layout {
-                grid-template-columns: 1fr;
-                gap: 0.6rem;
-            }
-        }
-
-        /* Ensure all content fits in iPhone 16 Pro Max viewport */
-        @media (max-height: 956px) {
-            .story-section {
-                margin: 0.6rem 0;
-            }
-            
-            .general-section {
-                margin: 0.8rem 0;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="container">
         <h1><b>AUTHOR INTRO NOTES</b></h1>
         <h2>READ BEFORE ENGAGING</h2>
 
-        <div class="general-section">
-            <h2><b><small>General note—disclaimer.</small></b></h2>
-            <p>All my fics are written in a limited point of view. That means you're in the characters' heads—their thoughts, their feelings, their perceptions. It is not omniscient. What they think is what you read. That includes incorrect assumptions, emotional spirals, missing context, misinformation, internal contradictions, projections, and deeply flawed logic. Just like real people.</p>
-            <p>The narration is unreliable on purpose. Psychological realism is the foundation of everything I write. You're not getting the full truth—you're getting the character's truth. And if that frustrates you, that's okay. But this space isn't built for neat, all-knowing storytelling. It's built to feel like real internal chaos.</p>
+```
+    <div class="general-section">
+        <h2><b><small>General note—disclaimer.</small></b></h2>
+        <p>All my fics are written in a limited point of view. That means you're in the characters' heads—their thoughts, their feelings, their perceptions. It is not omniscient. What they think is what you read. That includes incorrect assumptions, emotional spirals, missing context, misinformation, internal contradictions, projections, and deeply flawed logic. Just like real people.</p>
+        <p>The narration is unreliable on purpose. Psychological realism is the foundation of everything I write. You're not getting the full truth—you're getting the character's truth. And if that frustrates you, that's okay. But this space isn't built for neat, all-knowing storytelling. It's built to feel like real internal chaos.</p>
+    </div>
+
+    <!-- FUCK ME UP -->
+    <div class="story-section">
+        <div class="story-header" onclick="toggleStory('fmu')">
+            <h2 class="story-title"><span class="npf_color_monica">FUCK ME UP</span></h2>
+            <span class="story-arrow" id="fmu-arrow">▼</span>
         </div>
-
-        <div class="grid-layout">
-            <!-- FUCK ME UP -->
-            <div class="story-section">
-                <div class="story-header" onclick="toggleStory('fmu')">
-                    <h2 class="story-title"><span class="npf_color_monica">FUCK ME UP</span></h2>
-                    <span class="story-arrow" id="fmu-arrow">▼</span>
-                </div>
-                <div class="story-content" id="fmu-content">
-                    <div class="story-content-inner">
-                        <p><small>I am merely writing this for my own sanity.</small></p>
-                        <p><small>I've been working on another fic—t̶h̶a̶t̶'̶s̶ ̶s̶t̶i̶l̶l̶ ̶i̶n̶ ̶m̶y̶ ̶d̶r̶a̶f̶t̶s̶ ̶b̶e̶c̶a̶u̶s̶e̶ ̶I̶ ̶c̶a̶n̶'̶t̶ ̶w̶r̶i̶t̶e̶ ̶a̶ ̶s̶i̶n̶g̶l̶e̶ ̶l̶i̶n̶e̶ ̶w̶i̶t̶h̶o̶u̶t̶ ̶o̶v̶e̶r̶t̶h̶i̶n̶k̶i̶n̶g̶ ̶ˢᵒᵐᵉᵗʰⁱⁿᵍ...—but it's so intricate and complicated that it's giving me literal headaches.</small></p>
-                        <p><small>So I thought, Why don't I clear my head by writing something shorter, simpler, and much less complex?</small></p>
-                        <p><small>...And then I immediately failed at that. (╥﹏╥)ᴸ</small></p>
-                        <p><small>But listen, before we go any further:</small></p>
-                        <p><span class="npf_color_monica"><small><b>⚠️ THIS FIC IS REALISTIC. THESE CHARACTERS ARE HUMAN. IF THAT'S NOT YOUR THING, LEAVE NOW. ⚠️</b></small></span></p>
-                        <p><small>I don't write perfect people. I don't write emotionally intelligent, well-adjusted characters who communicate all their problems in a neat, mature way. If that's what you want, this fic is not for you.</small></p>
-                        <p><small>I write realism. I write human. That means messy, irrational, self-sabotaging, flawed, emotionally stunted, and reactive people. Because that's how people are. And that's why I write at all—because every time I read a fic where characters are just a little too well-adjusted, too quick to resolve things, too perfect, some tiny part of me rolls my eyes. I love stories that ache with humanity, that make you want to shake the characters because you get it, because you've been there. That's the whole point.</small></p>
-                        <p><small>So, if you expect people in this fic to handle their trauma gracefully and with healthy coping mechanisms, please run.</small></p>
-                        <p><small>Now, moving on.</small></p>
-                        <p><small>I don't plan for this fic to be as long as my other one (w̶h̶i̶c̶h̶ ̶s̶t̶a̶y̶s̶ ̶u̶n̶p̶u̶b̶l̶i̶s̶h̶e̶d̶ ̶b̶e̶c̶a̶u̶s̶e̶ ̶I̶ ̶r̶e̶f̶u̶s̶e̶ ̶t̶o̶ ̶l̶o̶s̶e̶ ̶m̶o̶t̶i̶v̶a̶t̶i̶o̶n̶ ̶o̶n̶ ̶a̶ ̶r̶a̶n̶d̶o̶m̶ ̶T̶u̶e̶s̶d̶a̶y̶ ̶a̶n̶d̶ ̶l̶e̶a̶v̶e̶ ̶y̶'̶a̶l̶l̶ ̶h̶a̶n̶g̶i̶n̶g̶), but I'm being chill about updates. I'll post when I feel like it.</small></p>
-                        <p><small>Gotta take care of my mental health. (つ╥ ³╥)つ</small></p>
-                        <p><small><b>Edit</b></small><small>: Oh, and just so we're clear—this fic will make you feel things. Good things. Bad things. Angst. Frustration. Anger? Lust? Don't say I didn't warn you. I like messy. :)</small></p>
-                        <p><small><b>Edit 2</b></small><small>: I lied. No 3K-word chapters—more like 5K. And "150K words only, not complex"? Yeah. Lies. All lies. This is messy and complicated because I physically cannot write stories that don't bleed with psychological depth and emotional trauma. That's just how I vibe, apparently.</small></p>
-                        <p><small>Y/N is mouthy and immature. Jungkook is annoying and emotionally avoidant. That is intentional. Things have to be bad before they get better.</small></p>
-                        <p><small>And just to reiterate:</small></p>
-                        <p><small>My characters are not a reflection of the real people behind them. The members are purely used for visual purposes.</small></p>
-                        <p><small>(Trust me to overcomplicate this somehow. I just love psychological drama, okay? FML.)</small></p>
-                    </div>
-                </div>
+        <div class="story-content" id="fmu-content">
+            <div class="story-content-inner">
+                <p><small>I am merely writing this for my own sanity.</small></p>
+                <p><small>I've been working on another fic—t̶h̶a̶t̶'̶s̶ ̶s̶t̶i̶l̶l̶ ̶i̶n̶ ̶m̶y̶ ̶d̶r̶a̶f̶t̶s̶ ̶b̶e̶c̶a̶u̶s̶e̶ ̶I̶ ̶c̶a̶n̶'̶t̶ ̶w̶r̶i̶t̶e̶ ̶a̶ ̶s̶i̶n̶g̶l̶e̶ ̶l̶i̶n̶e̶ ̶w̶i̶t̶h̶o̶u̶t̶ ̶o̶v̶e̶r̶t̶h̶i̶n̶k̶i̶n̶g̶ ̶ˢᵒᵐᵉᵗʰⁱⁿᵍ...—but it's so intricate and complicated that it's giving me literal headaches.</small></p>
+                <p><small>So I thought, Why don't I clear my head by writing something shorter, simpler, and much less complex?</small></p>
+                <p><small>...And then I immediately failed at that. (╥﹏╥)ᴸ</small></p>
+                <p><small>But listen, before we go any further:</small></p>
+                <p><span class="npf_color_monica"><small><b>⚠️ THIS FIC IS REALISTIC. THESE CHARACTERS ARE HUMAN. IF THAT'S NOT YOUR THING, LEAVE NOW. ⚠️</b></small></span></p>
+                <p><small>I don't write perfect people. I don't write emotionally intelligent, well-adjusted characters who communicate all their problems in a neat, mature way. If that's what you want, this fic is not for you.</small></p>
+                <p><small>I write realism. I write human. That means messy, irrational, self-sabotaging, flawed, emotionally stunted, and reactive people. Because that's how people are. And that's why I write at all—because every time I read a fic where characters are just a little too well-adjusted, too quick to resolve things, too perfect, some tiny part of me rolls my eyes. I love stories that ache with humanity, that make you want to shake the characters because you get it, because you've been there. That's the whole point.</small></p>
+                <p><small>So, if you expect people in this fic to handle their trauma gracefully and with healthy coping mechanisms, please run.</small></p>
+                <p><small>Now, moving on.</small></p>
+                <p><small>I don't plan for this fic to be as long as my other one (w̶h̶i̶c̶h̶ ̶s̶t̶a̶y̶s̶ ̶u̶n̶p̶u̶b̶l̶i̶s̶h̶e̶d̶ ̶b̶e̶c̶a̶u̶s̶e̶ ̶I̶ ̶r̶e̶f̶u̶s̶e̶ ̶t̶o̶ ̶l̶o̶s̶e̶ ̶m̶o̶t̶i̶v̶a̶t̶i̶o̶n̶ ̶o̶n̶ ̶a̶ ̶r̶a̶n̶d̶o̶m̶ ̶T̶u̶e̶s̶d̶a̶y̶ ̶a̶n̶d̶ ̶l̶e̶a̶v̶e̶ ̶y̶'̶a̶l̶l̶ ̶h̶a̶n̶g̶i̶n̶g̶), but I'm being chill about updates. I'll post when I feel like it.</small></p>
+                <p><small>Gotta take care of my mental health. (つ╥ ³╥)つ</small></p>
+                <p><small><b>Edit</b></small><small>: Oh, and just so we're clear—this fic will make you feel things. Good things. Bad things. Angst. Frustration. Anger? Lust? Don't say I didn't warn you. I like messy. :)</small></p>
+                <p><small><b>Edit 2</b></small><small>: I lied. No 3K-word chapters—more like 5K. And "150K words only, not complex"? Yeah. Lies. All lies. This is messy and complicated because I physically cannot write stories that don't bleed with psychological depth and emotional trauma. That's just how I vibe, apparently.</small></p>
+                <p><small>Y/N is mouthy and immature. Jungkook is annoying and emotionally avoidant. That is intentional. Things have to be bad before they get better.</small></p>
+                <p><small>And just to reiterate:</small></p>
+                <p><small>My characters are not a reflection of the real people behind them. The members are purely used for visual purposes.</small></p>
+                <p><small>(Trust me to overcomplicate this somehow. I just love psychological drama, okay? FML.)</small></p>
             </div>
+        </div>
+    </div>
 
-            <!-- KKANGPAE -->
-            <div class="story-section">
-                <div class="story-header" onclick="toggleStory('kkangpae')">
-                    <h2 class="story-title"><span style="color: #8b1b08">KKANGPAE</span></h2>
-                    <span class="story-arrow" id="kkangpae-arrow">▼</span>
-                </div>
-                <div class="story-content" id="kkangpae-content">
-                    <div class="story-content-inner">
-                        <div class="spoiler-section">
-                            <div class="spoiler-header" onclick="toggleSpoiler('kkangpae-spoiler')">
-                                🚨 SPOILER SECTION - CLICK TO REVEAL 🚨
-                            </div>
-                            <div class="spoiler-content" id="kkangpae-spoiler-content">
-                                <div class="spoiler-content-inner">
-                                    <p><small><b style="color: #8b1b08;">MAJOR PLOT SPOILERS AHEAD:</b></small></p>
-                                    <p><small>• This story contains themes of organized crime, violence, and morally complex characters</small></p>
-                                    <p><small>• Main characters will face life-threatening situations and make difficult moral choices</small></p>
-                                    <p><small>• The romance develops slowly against a backdrop of danger and betrayal</small></p>
-                                    <p><small>• Expect major character development through trauma and conflict</small></p>
-                                    <p><small>• Happy ending guaranteed, but the journey is intense</small></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <p><small>Before reading, I want to address some things:</small></p>
-                        <p><small>⊕This fanfic is Jungkook x female reader. For the most part, I try to avoid "Y/N" mentions because they give me the ick - but bear with me if there are any. If there are, I promise they'll be few and far between. 🙏🏻</small></p>
-                        <p><small>⊕ The content includes mature themes. The sexual scenes in the story are quite graphic, detailed and explicit, so if you don't like smut, this is not your fanfic. The novel is thus meant for a mature audience and you should be over 18 to read it. Do with that what you will.</small></p>
-                        <p><small>⊕The characters are just that. Characters. Their personalities are my invention and in no way represent the real people behind them. Which means: just imagine their pretty faces and read on. I really don't want any "X wouldn't say that / act like that" comments. It's my character, so yes, they will act like that. Believe me, I have a very detailed character sheet for every one of them.</small></p>
-                        <p><small>⊕It's slow burn enemies to lovers because I'm a hoe for thick sexual tension and mutual pining. There's gonna be a lot of fucking, a lot of restraint and a lot of angst. So yes, the build up will be slow, and yes it will burn. Be patient. 🙏🏻</small></p>
-                        <p><small>⊕ Fic is halfway written; I'm going for 60, and there's 30 already in my drafts. I started writing this in 2020 during the pandemic and I've been working on it off and on. Didn't publish it right away because I knew I would be like that, so I waited until it I had more planned to avoid losing motivation. I honestly wanted to post this when I finished it, but as per popular request, I'm uploading it now.</small></p>
-                        <p><small>⊕ I love comments! So please, please don't be a silent reader. You have no idea how many times I've edited every chapter, and I'm never fully satisfied with my writing. Sometimes it feels too ostentatious, sometimes it feels messy and out of place. Honestly my writing style is all over the place, but I hope it's good enough for you to keep reading. <3</small></p>
-                        <p><small>⊕ I'll say English is not my first language. Not that it's relevant, because I'm not trying to use that as an excuse — but you might find more typos that intended. Especially because I have nobody to proofread my shit and I edit paragraphs like a lunatic.</small></p>
-                        <p><small>(Also this has been written in the expanse of many years so my writing style has experienced quite the variation. I've edited it many times but you might still notice so — just a heads up!)</small></p>
-                        <p><small>⊕ Finally, not that it's relevant, but as an author I go by Kiki. :)</small></p>
-                        <p><span style="color: #8b1b08"><b>A note on characterization and storytelling:</b></span></p>
-                        <p><small>I want to emphasize that this story is deeply rooted in psychological realism, emotional complexity, and trauma. I write human characters—flawed, messy, sometimes frustrating, and shaped by their pasts. They will make bad choices. They will hurt others, get hurt, and wrestle with decisions that don't have clear right or wrong answers. Because that's what people do.</small></p>
-                        <p><small>If you're the kind of reader who needs characters to always make rational, morally sound decisions, or if you struggle to engage with flawed protagonists without feeling personally frustrated, this might not be the right story for you.</small></p>
-                        <p><small>This is not a fic where things happen just for the sake of drama or shock value. Every action, every consequence, every emotional reaction has intention behind it. If a character's choices don't make sense to you at first, that's okay—but trust that they make sense to them within the context of their experiences. If you don't understand a character's actions, I encourage you to lean into that curiosity rather than dismissing them outright.</small></p>
-                        <p><small>At the end of the day, you don't have to like or agree with every character, but I do ask that you engage with them as they are: human, not perfect. If that's something you enjoy in a story, I think you'll appreciate what I've built here.</small></p>
-                        <p><b><span style="color: #8b1b08">A note on heavy topics:</span></b></p>
-                        <p><small>This fic delves heavily into delicate topics that some readers might not be able to stomach. Please read at your OWN discretion. There's violence, graphic gore scenes, human trafficking / sexual violence (not on the reader and not graphically depicted), improper drug and alcohol use and the sorts.</small></p>
-                        <p><small><b>!!!</b></small></p>
-                        <p><small>Now, a couple additional things for my fellow anxious readers. Don't read these if you want to go completely blind and avoid any hints.</small></p>
-                        <p><small><b>!!!</b></small></p>
-                        <p><small>⊕Okay, before you read the prologue and think "oh god not one of those fics again where he keeps comparing you to her" I want to make it very clear it's not like that, I promise. I hate that as much as you, if not more. Whilst Jeon's backstory is heavy, I'm not gonna make y/n a poor excuse of a replacement. Makes me sick to my stomach. Hell fucking no. But dude's got problems, bear with him please. <3</small></p>
-                        <p><small>⊕It's a happy ending, guys. Don't worry. I'm a sucker for angst, but a bitch for sad endings. Can't stand them, won't stand them. World is already depressing enough as it is, no need for contributors.</small></p>
-                        <p><small><b>!!!</b></small></p>
-                        <p><span style="color: #8b1b08"><small>ᴡᴀʀɴɪɴɢs</small></span><span style="color: #8b1b08">:</span></p>
-                        <p><small>Mental health concerns, mental illnesses, alcohol abuse, drug abuse, mention of pills, insomnia, PTSD, anxiety, panic attacks, BPD, ASPD, narcissism, alcoholism (none directly mentioned but you can make your guesses), everyone is traumatized (lmao sorry), everyone has a backstory, intricate plot, death of minor characters, murder, swearing, violence, descriptive and explicit sex (a lot of it): praise kink, humiliation kink, oral sex (f&m), fingering, sex toys (f&m), public and semi-public sex, teasing, blindfolds, sensorial play, knife play (don't even ask.), degradation kink, secret sex, both switchy (JK usually leads), aphrodisiacs, begging, ass play, tit play, dry humping, makeup sex, morning sex, angry sex, masturbation (both alone and mutual), sex not in bed, 69, striptease, vaginal sex, accidental stimulation, dirty talk, biting, breath play, choking, deep throating, edging, face sitting, impact play (spanking and such), overstimulation, orgasm denial, restraints (ropes, chains, handcuffs), body worship, cock warming, ejaculation, mirrors, fuck buddies and i don't fucking know what else to say but yeah you've been warned. what you see is what you'll read.</small></p>
-                    </div>
-                </div>
+    <!-- KKANGPAE -->
+    <div class="story-section">
+        <div class="story-header" onclick="toggleStory('kkangpae')">
+            <h2 class="story-title"><span style="color: #8b1b08">KKANGPAE</span></h2>
+            <span class="story-arrow" id="kkangpae-arrow">▼</span>
+        </div>
+        <div class="story-content" id="kkangpae-content">
+            <div class="story-content-inner">
+                <p><small>Before reading, I want to address some things:</small></p>
+                <p><small>⊕This fanfic is Jungkook x female reader. For the most part, I try to avoid "Y/N" mentions because they give me the ick - but bear with me if there are any. If there are, I promise they'll be few and far between. 🙏🏻</small></p>
+                <p><small>⊕ The content includes mature themes. The sexual scenes in the story are quite graphic, detailed and explicit, so if you don't like smut, this is not your fanfic. The novel is thus meant for a mature audience and you should be over 18 to read it. Do with that what you will.</small></p>
+                <p><small>⊕The characters are just that. Characters. Their personalities are my invention and in no way represent the real people behind them. Which means: just imagine their pretty faces and read on. I really don't want any "X wouldn't say that / act like that" comments. It's my character, so yes, they will act like that. Believe me, I have a very detailed character sheet for every one of them.</small></p>
+                <p><small>⊕It's slow burn enemies to lovers because I'm a hoe for thick sexual tension and mutual pining. There's gonna be a lot of fucking, a lot of restraint and a lot of angst. So yes, the build up will be slow, and yes it will burn. Be patient. 🙏🏻</small></p>
+                <p><small>⊕ Fic is halfway written; I'm going for 60, and there's 30 already in my drafts. I started writing this in 2020 during the pandemic and I've been working on it off and on. Didn't publish it right away because I knew I would be like that, so I waited until it I had more planned to avoid losing motivation. I honestly wanted to post this when I finished it, but as per popular request, I'm uploading it now.</small></p>
+                <p><small>⊕ I love comments! So please, please don't be a silent reader. You have no idea how many times I've edited every chapter, and I'm never fully satisfied with my writing. Sometimes it feels too ostentatious, sometimes it feels messy and out of place. Honestly my writing style is all over the place, but I hope it's good enough for you to keep reading. <3</small></p>
+                <p><small>⊕ I'll say English is not my first language. Not that it's relevant, because I'm not trying to use that as an excuse — but you might find more typos that intended. Especially because I have nobody to proofread my shit and I edit paragraphs like a lunatic.</small></p>
+                <p><small>(Also this has been written in the expanse of many years so my writing style has experienced quite the variation. I've edited it many times but you might still notice so — just a heads up!)</small></p>
+                <p><small>⊕ Finally, not that it's relevant, but as an author I go by Kiki. :)</small></p>
+                <p><span style="color: #8b1b08"><b>A note on characterization and storytelling:</b></span></p>
+                <p><small>I want to emphasize that this story is deeply rooted in psychological realism, emotional complexity, and trauma. I write human characters—flawed, messy, sometimes frustrating, and shaped by their pasts. They will make bad choices. They will hurt others, get hurt, and wrestle with decisions that don't have clear right or wrong answers. Because that's what people do.</small></p>
+                <p><small>If you're the kind of reader who needs characters to always make rational, morally sound decisions, or if you struggle to engage with flawed protagonists without feeling personally frustrated, this might not be the right story for you.</small></p>
+                <p><small>This is not a fic where things happen just for the sake of drama or shock value. Every action, every consequence, every emotional reaction has intention behind it. If a character's choices don't make sense to you at first, that's okay—but trust that they make sense to them within the context of their experiences. If you don't understand a character's actions, I encourage you to lean into that curiosity rather than dismissing them outright.</small></p>
+                <p><small>At the end of the day, you don't have to like or agree with every character, but I do ask that you engage with them as they are: human, not perfect. If that's something you enjoy in a story, I think you'll appreciate what I've built here.</small></p>
+                <p><b><span style="color: #8b1b08">A note on heavy topics:</span></b></p>
+                <p><small>This fic delves heavily into delicate topics that some readers might not be able to stomach. Please read at your OWN discretion. There's violence, graphic gore scenes, human trafficking / sexual violence (not on the reader and not graphically depicted), improper drug and alcohol use and the sorts.</small></p>
+                <p><small><b>!!!</b></small></p>
+                <p><small>Now, a couple additional things for my fellow anxious readers. Don't read these if you want to go completely blind and avoid any hints.</small></p>
+                <p><small><b>!!!</b></small></p>
+                <p><small>⊕Okay, before you read the prologue and think "oh god not one of those fics again where he keeps comparing you to her" I want to make it very clear it's not like that, I promise. I hate that as much as you, if not more. Whilst Jeon's backstory is heavy, I'm not gonna make y/n a poor excuse of a replacement. Makes me sick to my stomach. Hell fucking no. But dude's got problems, bear with him please. <3</small></p>
+                <p><small>⊕It's a happy ending, guys. Don't worry. I'm a sucker for angst, but a bitch for sad endings. Can't stand them, won't stand them. World is already depressing enough as it is, no need for contributors.</small></p>
+                <p><small><b>!!!</b></small></p>
+                <p><span style="color: #8b1b08"><small>ᴡᴀʀɴɪɴɢs</small></span><span style="color: #8b1b08">:</span></p>
+                <p><small>Mental health concerns, mental illnesses, alcohol abuse, drug abuse, mention of pills, insomnia, PTSD, anxiety, panic attacks, BPD, ASPD, narcissism, alcoholism (none directly mentioned but you can make your guesses), everyone is traumatized (lmao sorry), everyone has a backstory, intricate plot, death of minor characters, murder, swearing, violence, descriptive and explicit sex (a lot of it): praise kink, humiliation kink, oral sex (f&m), fingering, sex toys (f&m), public and semi-public sex, teasing, blindfolds, sensorial play, knife play (don't even ask.), degradation kink, secret sex, both switchy (JK usually leads), aphrodisiacs, begging, ass play, tit play, dry humping, makeup sex, morning sex, angry sex, masturbation (both alone and mutual), sex not in bed, 69, striptease, vaginal sex, accidental stimulation, dirty talk, biting, breath play, choking, deep throating, edging, face sitting, impact play (spanking and such), overstimulation, orgasm denial, restraints (ropes, chains, handcuffs), body worship, cock warming, ejaculation, mirrors, fuck buddies and i don't fucking know what else to say but yeah you've been warned. what you see is what you'll read.</small></p>
             </div>
+        </div>
+    </div>
 
-            <!-- THE 25TH HOUR -->
-            <div class="story-section">
-                <div class="story-header" onclick="toggleStory('hour25')">
-                    <h2 class="story-title"><span class="npf_color_rachel">THE 25TH HOUR</span></h2>
-                    <span class="story-arrow" id="hour25-arrow">▼</span>
-                </div>
-                <div class="story-content" id="hour25-content">
-                    <div class="story-content-inner">
-                        <p><small>Welcome to "The 25th Hour" - a story about time, choice, and the weight of memories we don't remember carrying.</small></p>
-                        <p><span class="npf_color_rachel"><small><b>CONTENT WARNINGS:</b></small></span></p>
-                        <p><small>- Psychological trauma & PTSD</small></p>
-                        <p><small>- Memory loss/manipulation</small></p>
-                        <p><small>- Government surveillance & control</small></p>
-                        <p><small>- Existential horror</small></p>
-                        <p><small>- Complex power dynamics</small></p>
-                        <p><small>- Sexual content & intimacy</small></p>
-                        <p><small>- Violence & death</small></p>
-                        <p><small>- Moral ambiguity</small></p>
-                        <p><small>- Intrusive thoughts</small></p>
-                        <p><small>- Dissociation</small></p>
-                        <p><small>- Self-destructive behavior</small></p>
-                        <p><small>- Unreliable narration</small></p>
-                        <p><small>- Unhealthy coping mechanisms</small></p>
-                        <p><small>- Addiction (temporal/physical)</small></p>
-                        <p><small>- Identity crisis</small></p>
-                        <p><small>- Gaslighting (systemic)</small></p>
-                        <p><span class="npf_color_rachel"><small><b>IMPORTANT DISCLAIMER:</b></small></span></p>
-                        <p><small>This work uses BTS members as visual references only. The characters depicted are fictional interpretations and do not reflect the real individuals.</small></p>
-                        <p><span class="npf_color_rachel"><small><b>A NOTE ON STORYTELLING:</b></small></span></p>
-                        <p><small>This is not a simple love story. It's a psychological exploration of trauma, memory, and the choices we make when time itself becomes our enemy. The characters you'll meet here are deeply flawed, traumatized, and sometimes infuriating - because that's what being human means.</small></p>
-                        <p><small>You will likely want to shake them. Scream at them. Tell them they're making terrible choices. And you'll be right - they are. But every decision, every mistake, every moment of self-sabotage comes from somewhere real. From trauma. From fear. From the deeply human instinct to protect ourselves, even when that protection becomes destruction.</small></p>
-                        <p><span class="npf_color_rachel"><small>This story delves into:</small></span></p>
-                        <p><small>- The psychology of memory and loss</small></p>
-                        <p><small>- How trauma shapes decision-making</small></p>
-                        <p><small>- The complexity of power dynamics</small></p>
-                        <p><small>- The way our bodies remember what our minds forget</small></p>
-                        <p><small>- The messy, uncomfortable reality of human nature</small></p>
-                        <p><span class="npf_color_rachel"><small>If you're looking for:</small></span></p>
-                        <p><small>✓ Psychological depth</small></p>
-                        <p><small>✓ Complex character motivations</small></p>
-                        <p><small>✓ Realistic human behavior</small></p>
-                        <p><small>✓ Slow-burn tension</small></p>
-                        <p><small>✓ Detailed world-building</small></p>
-                        <p><small>✓ Unreliable narration</small></p>
-                        <p><small>✓ Morally grey characters</small></p>
-                        <p><small><b>This story might be for you.</b></small></p>
-                        <p><span class="npf_color_rachel"><small>If you're uncomfortable with:</small></span></p>
-                        <p><small>× Characters making objectively bad decisions</small></p>
-                        <p><small>× Complex trauma responses</small></p>
-                        <p><small>× Morally ambiguous choices</small></p>
-                        <p><small>× Unhealthy coping mechanisms</small></p>
-                        <p><small>× Realistic human flaws</small></p>
-                        <p><small>× Slow character development</small></p>
-                        <p><small>× Psychological complexity</small></p>
-                        <p><small><b>This might not be the story for you.</b></small></p>
-                        <p><span class="npf_color_rachel"><small><b>A REQUEST TO READERS:</b></small></span></p>
-                        <p><small>Before commenting that a character is "annoying" or questioning why they made a certain choice, I invite you to consider: What experiences shaped this decision? What fears drive this behavior? What trauma response are we seeing?</small></p>
-                        <p><small>These characters aren't making choices to create drama. They're making choices because they're human, carrying weights we can't always see, fighting battles we don't fully understand until we're deeper in their minds.</small></p>
-                        <p><span class="npf_color_rachel"><small>This is a story about:</small></span></p>
-                        <p><small>- The weight of choices we don't remember making</small></p>
-                        <p><small>- The scars left by time we can't remember living</small></p>
-                        <p><small>- The way trauma echoes through moments we can't explain</small></p>
-                        <p><small>- The bodies that remember what minds try to forget</small></p>
-                        <p><small>If you're ready to dive into something psychologically complex, emotionally challenging, and deeply human - welcome to The 25th Hour.</small></p>
-                        <p><b><small>Remember: Your mental health comes first. If any themes become too heavy, please take care of yourself and step back when needed.</small></b></p>
-                    </div>
-                </div>
+    <!-- THE 25TH HOUR -->
+    <div class="story-section">
+        <div class="story-header" onclick="toggleStory('hour25')">
+            <h2 class="story-title"><span class="npf_color_rachel">THE 25TH HOUR</span></h2>
+            <span class="story-arrow" id="hour25-arrow">▼</span>
+        </div>
+        <div class="story-content" id="hour25-content">
+            <div class="story-content-inner">
+                <p><small>Welcome to "The 25th Hour" - a story about time, choice, and the weight of memories we don't remember carrying.</small></p>
+                <p><span class="npf_color_rachel"><small><b>CONTENT WARNINGS:</b></small></span></p>
+                <p><small>- Psychological trauma & PTSD</small></p>
+                <p><small>- Memory loss/manipulation</small></p>
+                <p><small>- Government surveillance & control</small></p>
+                <p><small>- Existential horror</small></p>
+                <p><small>- Complex power dynamics</small></p>
+                <p><small>- Sexual content & intimacy</small></p>
+                <p><small>- Violence & death</small></p>
+                <p><small>- Moral ambiguity</small></p>
+                <p><small>- Intrusive thoughts</small></p>
+                <p><small>- Dissociation</small></p>
+                <p><small>- Self-destructive behavior</small></p>
+                <p><small>- Unreliable narration</small></p>
+                <p><small>- Unhealthy coping mechanisms</small></p>
+                <p><small>- Addiction (temporal/physical)</small></p>
+                <p><small>- Identity crisis</small></p>
+                <p><small>- Gaslighting (systemic)</small></p>
+                <p><span class="npf_color_rachel"><small><b>IMPORTANT DISCLAIMER:</b></small></span></p>
+                <p><small>This work uses BTS members as visual references only. The characters depicted are fictional interpretations and do not reflect the real individuals.</small></p>
+                <p><span class="npf_color_rachel"><small><b>A NOTE ON STORYTELLING:</b></small></span></p>
+                <p><small>This is not a simple love story. It's a psychological exploration of trauma, memory, and the choices we make when time itself becomes our enemy. The characters you'll meet here are deeply flawed, traumatized, and sometimes infuriating - because that's what being human means.</small></p>
+                <p><small>You will likely want to shake them. Scream at them. Tell them they're making terrible choices. And you'll be right - they are. But every decision, every mistake, every moment of self-sabotage comes from somewhere real. From trauma. From fear. From the deeply human instinct to protect ourselves, even when that protection becomes destruction.</small></p>
+                <p><span class="npf_color_rachel"><small>This story delves into:</small></span></p>
+                <p><small>- The psychology of memory and loss</small></p>
+                <p><small>- How trauma shapes decision-making</small></p>
+                <p><small>- The complexity of power dynamics</small></p>
+                <p><small>- The way our bodies remember what our minds forget</small></p>
+                <p><small>- The messy, uncomfortable reality of human nature</small></p>
+                <p><span class="npf_color_rachel"><small>If you're looking for:</small></span></p>
+                <p><small>✓ Psychological depth</small></p>
+                <p><small>✓ Complex character motivations</small></p>
+                <p><small>✓ Realistic human behavior</small></p>
+                <p><small>✓ Slow-burn tension</small></p>
+                <p><small>✓ Detailed world-building</small></p>
+                <p><small>✓ Unreliable narration</small></p>
+                <p><small>✓ Morally grey characters</small></p>
+                <p><small><b>This story might be for you.</b></small></p>
+                <p><span class="npf_color_rachel"><small>If you're uncomfortable with:</small></span></p>
+                <p><small>× Characters making objectively bad decisions</small></p>
+                <p><small>× Complex trauma responses</small></p>
+                <p><small>× Morally ambiguous choices</small></p>
+                <p><small>× Unhealthy coping mechanisms</small></p>
+                <p><small>× Realistic human flaws</small></p>
+                <p><small>× Slow character development</small></p>
+                <p><small>× Psychological complexity</small></p>
+                <p><small><b>This might not be the story for you.</b></small></p>
+                <p><span class="npf_color_rachel"><small><b>A REQUEST TO READERS:</b></small></span></p>
+                <p><small>Before commenting that a character is "annoying" or questioning why they made a certain choice, I invite you to consider: What experiences shaped this decision? What fears drive this behavior? What trauma response are we seeing?</small></p>
+                <p><small>These characters aren't making choices to create drama. They're making choices because they're human, carrying weights we can't always see, fighting battles we don't fully understand until we're deeper in their minds.</small></p>
+                <p><span class="npf_color_rachel"><small>This is a story about:</small></span></p>
+                <p><small>- The weight of choices we don't remember making</small></p>
+                <p><small>- The scars left by time we can't remember living</small></p>
+                <p><small>- The way trauma echoes through moments we can't explain</small></p>
+                <p><small>- The bodies that remember what minds try to forget</small></p>
+                <p><small>If you're ready to dive into something psychologically complex, emotionally challenging, and deeply human - welcome to The 25th Hour.</small></p>
+                <p><b><small>Remember: Your mental health comes first. If any themes become too heavy, please take care of yourself and step back when needed.</small></b></p>
             </div>
+        </div>
+    </div>
 
-            <!-- OFF-LABELS -->
-            <div class="story-section">
-                <div class="story-header" onclick="toggleStory('offlabels')">
-                    <h2 class="story-title"><span class="npf_color_niles">OFF-LABELS</span></h2>
-                    <span class="story-arrow" id="offlabels-arrow">▼</span>
-                </div>
-                <div class="story-content" id="offlabels-content">
-                    <div class="story-content-inner">
-                        <p><small>This is a story about desire, tension, and the delicious space between what we say and what we mean. It explores the dynamic between a seemingly innocent mentor figure who knows exactly what he's doing and a very willing student who's simultaneously flustered by and eager for his attention.</small></p>
-                        <p><small>While Jung Hoseok's likeness is used as inspiration, this is entirely fictional and not meant to reflect the real person in any way.</small></p>
-                        <p><small><b><span class="npf_color_niles">Content Warnings</span></b></small></p>
-                        <p><small>- Power imbalance</small></p>
-                        <p><small>- Psychological manipulation</small></p>
-                        <p><small>- Medical settings</small></p>
-                        <p><small>- That thing where someone pretends to be oblivious while knowing exactly what they're doing</small></p>
-                        <p><small>- That other thing where you're pretty sure you're not imagining things but also ???</small></p>
-                        <p><span class="npf_color_niles"><small><b>What to Expect</b></small></span></p>
-                        <p><small>This story intentionally plays with:</small></p>
-                        <p><small>- The contrast between public innocence and private intentions</small></p>
-                        <p><small>- Sexual tension disguised as academic mentorship</small></p>
-                        <p><small>- A mentor who is VERY good at playing dumb while being VERY deliberate</small></p>
-                        <p><small>- A protagonist who is equally frustrated and thrilled by all of this</small></p>
-                        <p><small>- The fun kind of psychological games between two people who are absolutely into each other</small></p>
-                        <p><small>This isn't trying to be particularly deep or complex - it's an intentional exploration of specific dynamics that fascinate me as a writer. If themes of psychological manipulation or power imbalance make you uncomfortable, this probably isn't the story for you.</small></p>
-                        <p><span class="npf_color_niles"><small><b>A Note on Content</b></small></span></p>
-                        <p><small>I'm interested in the psychology of desire and control, particularly how it manifests in seemingly innocent interactions. This story is an indulgent exploration of those themes. It's meant to be both entertaining and psychologically interesting, but it's not trying to make any grand statements.</small></p>
-                        <p><small>If you're looking for straightforward, unproblematic content, this probably isn't your cup of tea. And that's okay! Know your limits and engage accordingly.</small></p>
-                        <p><span class="npf_color_niles"><small><b>Important Note on Consent</b></small></span></p>
-                        <p><small>Let me be crystal clear: everything in this story is consensual and enthusiastically welcomed by both parties. The protagonist has a massive crush on Hoseok and is very much a willing participant in their games. While he might pretend to be oblivious while deliberately driving her crazy, he never pushes past what she wants. Her hesitation comes from her own internal "is this really happening???" moments, not from any lack of desire or consent.</small></p>
-                        <p><small>The power dynamics are purely in the realm of kinky fun - think "menacingly kind mentor who enjoys making you flustered" rather than anything genuinely dark or coercive. It's all about that delicious tension of "is he doing this on purpose or am I imagining it OH GOD HE'S DEFINITELY DOING THIS ON PURPOSE."</small></p>
-                        <p><small>If subtle manipulation in consensual situations makes you uncomfortable, or if you prefer your romance without the psychological mind games, this might not be your cup of tea. And that's totally okay! But if you enjoy the idea of a seemingly innocent mentor figure who's actually playing a very deliberate game of "how flustered can I make you while pretending I have no idea what I'm doing" - well, pull up a chair 😏</small></p>
-                        <p><b><small>TL;DR</small></b><small>: This is meant to be hot and fun, not emotionally devastating. The only tears here will be from... enthusiastic oral practice. For academic purposes, of course. 👀</small></p>
-                    </div>
-                </div>
+    <!-- OFF-LABELS -->
+    <div class="story-section">
+        <div class="story-header" onclick="toggleStory('offlabels')">
+            <h2 class="story-title"><span class="npf_color_niles">OFF-LABELS</span></h2>
+            <span class="story-arrow" id="offlabels-arrow">▼</span>
+        </div>
+        <div class="story-content" id="offlabels-content">
+            <div class="story-content-inner">
+                <p><small>This is a story about desire, tension, and the delicious space between what we say and what we mean. It explores the dynamic between a seemingly innocent mentor figure who knows exactly what he's doing and a very willing student who's simultaneously flustered by and eager for his attention.</small></p>
+                <p><small>While Jung Hoseok's likeness is used as inspiration, this is entirely fictional and not meant to reflect the real person in any way.</small></p>
+                <p><small><b><span class="npf_color_niles">Content Warnings</span></b></small></p>
+                <p><small>- Power imbalance</small></p>
+                <p><small>- Psychological manipulation</small></p>
+                <p><small>- Medical settings</small></p>
+                <p><small>- That thing where someone pretends to be oblivious while knowing exactly what they're doing</small></p>
+                <p><small>- That other thing where you're pretty sure you're not imagining things but also ???</small></p>
+                <p><span class="npf_color_niles"><small><b>What to Expect</b></small></span></p>
+                <p><small>This story intentionally plays with:</small></p>
+                <p><small>- The contrast between public innocence and private intentions</small></p>
+                <p><small>- Sexual tension disguised as academic mentorship</small></p>
+                <p><small>- A mentor who is VERY good at playing dumb while being VERY deliberate</small></p>
+                <p><small>- A protagonist who is equally frustrated and thrilled by all of this</small></p>
+                <p><small>- The fun kind of psychological games between two people who are absolutely into each other</small></p>
+                <p><small>This isn't trying to be particularly deep or complex - it's an intentional exploration of specific dynamics that fascinate me as a writer. If themes of psychological manipulation or power imbalance make you uncomfortable, this probably isn't the story for you.</small></p>
+                <p><span class="npf_color_niles"><small><b>A Note on Content</b></small></span></p>
+                <p><small>I'm interested in the psychology of desire and control, particularly how it manifests in seemingly innocent interactions. This story is an indulgent exploration of those themes. It's meant to be both entertaining and psychologically interesting, but it's not trying to make any grand statements.</small></p>
+                <p><small>If you're looking for straightforward, unproblematic content, this probably isn't your cup of tea. And that's okay! Know your limits and engage accordingly.</small></p>
+                <p><span class="npf_color_niles"><small><b>Important Note on Consent</b></small></span></p>
+                <p><small>Let me be crystal clear: everything in this story is consensual and enthusiastically welcomed by both parties. The protagonist has a massive crush on Hoseok and is very much a willing participant in their games. While he might pretend to be oblivious while deliberately driving her crazy, he never pushes past what she wants. Her hesitation comes from her own internal "is this really happening???" moments, not from any lack of desire or consent.</small></p>
+                <p><small>The power dynamics are purely in the realm of kinky fun - think "menacingly kind mentor who enjoys making you flustered" rather than anything genuinely dark or coercive. It's all about that delicious tension of "is he doing this on purpose or am I imagining it OH GOD HE'S DEFINITELY DOING THIS ON PURPOSE."</small></p>
+                <p><small>If subtle manipulation in consensual situations makes you uncomfortable, or if you prefer your romance without the psychological mind games, this might not be your cup of tea. And that's totally okay! But if you enjoy the idea of a seemingly innocent mentor figure who's actually playing a very deliberate game of "how flustered can I make you while pretending I have no idea what I'm doing" - well, pull up a chair 😏</small></p>
+                <p><b><small>TL;DR</small></b><small>: This is meant to be hot and fun, not emotionally devastating. The only tears here will be from... enthusiastic oral practice. For academic purposes, of course. 👀</small></p>
             </div>
+        </div>
+    </div>
 
-            <!-- STRINGS ATTACHED -->
-            <div class="story-section">
-                <div class="story-header" onclick="toggleStory('strings')">
-                    <h2 class="story-title"><span class="npf_color_joey">SA(TMH)</span></h2>
-                    <span class="story-arrow" id="strings-arrow">▼</span>
-                </div>
-                <div class="story-content" id="strings-content">
-                    <div class="story-content-inner">
-                        <p><small>Welcome to "Strings attached (to my heart)," a Spider-Man AU set in the bustling streets of Seoul. Before we begin, I'd like to establish a few important points:</small></p>
-                        <p><small><b>Content Warnings:</b></small></p>
-                        <p><small>- Mature themes & complex emotional dynamics</small></p>
-                        <p><small>- Age gap (24/21, noona-hoobae relationship)</small></p>
-                        <p><small>- Academic power dynamics</small></p>
-                        <p><small>- Self-sabotaging behaviors</small></p>
-                        <p><small>- Anxiety & intrusive thoughts</small></p>
-                        <p><small>- Guilt & inner conflict</small></p>
-                        <p><small>- Miscommunication</small></p>
-                        <p><small>- Complex power dynamics</small></p>
-                        <p><small>- Emotional vulnerability</small></p>
-                        <p><small>- First experiences</small></p>
-                        <p><small>- Crisis of conscience</small></p>
-                        <p><small>- Self-worth struggles</small></p>
-                        <p><span style="color: #ff4930"><b><small>A Note on Character Complexity:</small></b></span></p>
-                        <p><small>This narrative strives for psychological realism. The characters here are deeply flawed, complicated individuals who make choices that may frustrate or challenge readers. Y/N's dismissiveness, Jungkook's eagerness, their mutual struggles with boundaries and attraction - these aren't simple plot devices, but carefully crafted expressions of their inner worlds.</small></p>
-                        <p><small>Y/N grapples with professional ethics, social expectations, and her own preconceptions about appropriate relationships. Jungkook navigates the complexities of admiration, inexperience, and the weight of his secret identity. Their dynamics are messy, their choices sometimes questionable, because that's what makes us human.</small></p>
-                        <p><small>If you're looking for straightforward characters who always make the "right" decisions, this might not be the story for you. But if you're interested in exploring the complicated territory of human connection - how we push people away when we want them closest, how we navigate power imbalances and social expectations, how we learn to trust and be vulnerable - then I invite you to join this journey.</small></p>
-                        <p><small><b>Reader Self-Care:</b></small><small>Please be mindful of the content warnings and your own comfort levels. While these themes are handled with care, they may still be challenging. Your mental well-being comes first.</small></p>
-                        <p><small>Thank you for being here, and I hope you'll approach these characters with the same complexity and understanding with which they were created.</small></p>
-                    </div>
-                </div>
+    <!-- STRINGS ATTACHED -->
+    <div class="story-section">
+        <div class="story-header" onclick="toggleStory('strings')">
+            <h2 class="story-title"><span class="npf_color_joey">SA(TMH)</span></h2>
+            <span class="story-arrow" id="strings-arrow">▼</span>
+        </div>
+        <div class="story-content" id="strings-content">
+            <div class="story-content-inner">
+                <p><small>Welcome to "Strings attached (to my heart)," a Spider-Man AU set in the bustling streets of Seoul. Before we begin, I'd like to establish a few important points:</small></p>
+                <p><small><b>Content Warnings:</b></small></p>
+                <p><small>- Mature themes & complex emotional dynamics</small></p>
+                <p><small>- Age gap (24/21, noona-hoobae relationship)</small></p>
+                <p><small>- Academic power dynamics</small></p>
+                <p><small>- Self-sabotaging behaviors</small></p>
+                <p><small>- Anxiety & intrusive thoughts</small></p>
+                <p><small>- Guilt & inner conflict</small></p>
+                <p><small>- Miscommunication</small></p>
+                <p><small>- Complex power dynamics</small></p>
+                <p><small>- Emotional vulnerability</small></p>
+                <p><small>- First experiences</small></p>
+                <p><small>- Crisis of conscience</small></p>
+                <p><small>- Self-worth struggles</small></p>
+                <p><span style="color: #ff4930"><b><small>A Note on Character Complexity:</small></b></span></p>
+                <p><small>This narrative strives for psychological realism. The characters here are deeply flawed, complicated individuals who make choices that may frustrate or challenge readers. Y/N's dismissiveness, Jungkook's eagerness, their mutual struggles with boundaries and attraction - these aren't simple plot devices, but carefully crafted expressions of their inner worlds.</small></p>
+                <p><small>Y/N grapples with professional ethics, social expectations, and her own preconceptions about appropriate relationships. Jungkook navigates the complexities of admiration, inexperience, and the weight of his secret identity. Their dynamics are messy, their choices sometimes questionable, because that's what makes us human.</small></p>
+                <p><small>If you're looking for straightforward characters who always make the "right" decisions, this might not be the story for you. But if you're interested in exploring the complicated territory of human connection - how we push people away when we want them closest, how we navigate power imbalances and social expectations, how we learn to trust and be vulnerable - then I invite you to join this journey.</small></p>
+                <p><small><b>Reader Self-Care:</b></small><small>Please be mindful of the content warnings and your own comfort levels. While these themes are handled with care, they may still be challenging. Your mental well-being comes first.</small></p>
+                <p><small>Thank you for being here, and I hope you'll approach these characters with the same complexity and understanding with which they were created.</small></p>
             </div>
+        </div>
+    </div>
 
-            <!-- UNMANAGEABLE -->
-            <div class="story-section">
-                <div class="story-header" onclick="toggleStory('unmanageable')">
-                    <h2 class="story-title"><span class="npf_color_chandler">UNMANAGEABLE</span></h2>
-                    <span class="story-arrow" id="unmanageable-arrow">▼</span>
-                </div>
-                <div class="story-content" id="unmanageable-content">
-                    <div class="story-content-inner">
-                        <p><small>Welcome to UNMANAGEABLE (UM)—my new enemies-to-lovers slow burn featuring Jungkook and Y/N. And when I say </small><small><i>enemies</i></small><small>, I mean </small><small><b>ENEMIES</b></small><small>.</small></p>
-                        <p><small>I've noticed a trend in the "enemies-to-lovers" genre where characters start as mild antagonists and quickly soften into flirty banter by chapter three. That's not this story. This is about two genuinely incompatible people with competing agendas who absolutely cannot stand each other. The hatred is real, sustained, and occasionally vicious. There will be professional sabotage, cruelty, and psychological warfare before there's even a hint of attraction.</small></p>
-                        <p><small>This will be a lengthy journey (likely around 500k words) exploring what happens when two stubborn, damaged, brilliant people discover they might hate everyone else even more than they hate each other. Expect a slow, painful burn where any progress forward is matched by three steps back. The tension will be excruciating—both professional and, eventually, sexual—but resolution won't come easily or quickly.</small></p>
-                        <p><small>Now; what we are all here for.:</small></p>
-                        <p><span class="npf_color_chandler"><b>CONTENT WARNINGS.</b></span></p>
-                        <p><small>This story contains mature themes including:</small></p>
-                        <ul>
-                            <li><small>Frequent strong language.</small></li>
-                            <li><small>Explicit sexual content.</small></li>
-                            <li><small>Workplace power dynamics and professional sabotage.</small></li>
-                            <li><small>References to past betrayal and trust issues.</small></li>
-                            <li><small>Discussions of family abandonment and parental neglect.</small></li>
-                            <li><small>Mommy issues vs. brother issues.</small></li>
-                            <li><small>Instances of emotional manipulation.</small></li>
-                            <li><small>JK has issues with female authority figures and it's not subtle.</small></li>
-                            <li><small>References to anxiety, OCD behaviors, and controlling tendencies.</small></li>
-                            <li><small>Portrayal of eating disorders and disordered eating behaviors. Y/N has an undiagnosed eating disorder.</small></li>
-                            <li><small>Alcohol consumption and references to designer drugs. JK does drugs occasionally.</small></li>
-                            <li><small>Blood/knife play and dominant sexual dynamics in later chapters.</small></li>
-                            <li><small>Unhealthy coping mechanisms.</small></li>
-                            <li><small>Intense psychological conflict.</small></li>
-                            <li><small>Celebrity culture toxicity.</small></li>
-                            <li><small>Characters in high-pressure professional roles.</small></li>
-                            <li><small>Set in the contemporary Korean entertainment industry with cultural elements reflected accordingly.</small></li>
-                        </ul>
-                        <p><small>If these themes sound interesting but the darker elements aren't your preference, </small><small><b>do not read.</b></small><small> This isn't a light read, and the payoff will take time. The characters will earn every moment of connection through conflict, crisis, and reluctant dependence.</small></p>
-                        <p><small>For those staying—buckle up. This is going to be a bumpy, complicated, deliciously frustrating ride.</small></p>
-                    </div>
-                </div>
+    <!-- UNMANAGEABLE -->
+    <div class="story-section">
+        <div class="story-header" onclick="toggleStory('unmanageable')">
+            <h2 class="story-title"><span class="npf_color_chandler">UNMANAGEABLE</span></h2>
+            <span class="story-arrow" id="unmanageable-arrow">▼</span>
+        </div>
+        <div class="story-content" id="unmanageable-content">
+            <div class="story-content-inner">
+                <p><small>Welcome to UNMANAGEABLE (UM)—my new enemies-to-lovers slow burn featuring Jungkook and Y/N. And when I say </small><small><i>enemies</i></small><small>, I mean </small><small><b>ENEMIES</b></small><small>.</small></p>
+                <p><small>I've noticed a trend in the "enemies-to-lovers" genre where characters start as mild antagonists and quickly soften into flirty banter by chapter three. That's not this story. This is about two genuinely incompatible people with competing agendas who absolutely cannot stand each other. The hatred is real, sustained, and occasionally vicious. There will be professional sabotage, cruelty, and psychological warfare before there's even a hint of attraction.</small></p>
+                <p><small>This will be a lengthy journey (likely around 500k words) exploring what happens when two stubborn, damaged, brilliant people discover they might hate everyone else even more than they hate each other. Expect a slow, painful burn where any progress forward is matched by three steps back. The tension will be excruciating—both professional and, eventually, sexual—but resolution won't come easily or quickly.</small></p>
+                <p><small>Now; what we are all here for.:</small></p>
+                <p><span class="npf_color_chandler"><b>CONTENT WARNINGS.</b></span></p>
+                <p><small>This story contains mature themes including:</small></p>
+                <ul>
+                    <li><small>Frequent strong language.</small></li>
+                    <li><small>Explicit sexual content.</small></li>
+                    <li><small>Workplace power dynamics and professional sabotage.</small></li>
+                    <li><small>References to past betrayal and trust issues.</small></li>
+                    <li><small>Discussions of family abandonment and parental neglect.</small></li>
+                    <li><small>Mommy issues vs. brother issues.</small></li>
+                    <li><small>Instances of emotional manipulation.</small></li>
+                    <li><small>JK has issues with female authority figures and it's not subtle.</small></li>
+                    <li><small>References to anxiety, OCD behaviors, and controlling tendencies.</small></li>
+                    <li><small>Portrayal of eating disorders and disordered eating behaviors. Y/N has an undiagnosed eating disorder.</small></li>
+                    <li><small>Alcohol consumption and references to designer drugs. JK does drugs occasionally.</small></li>
+                    <li><small>Blood/knife play and dominant sexual dynamics in later chapters.</small></li>
+                    <li><small>Unhealthy coping mechanisms.</small></li>
+                    <li><small>Intense psychological conflict.</small></li>
+                    <li><small>Celebrity culture toxicity.</small></li>
+                    <li><small>Characters in high-pressure professional roles.</small></li>
+                    <li><small>Set in the contemporary Korean entertainment industry with cultural elements reflected accordingly.</small></li>
+                </ul>
+                <p><small>If these themes sound interesting but the darker elements aren't your preference, </small><small><b>do not read.</b></small><small> This isn't a light read, and the payoff will take time. The characters will earn every moment of connection through conflict, crisis, and reluctant dependence.</small></p>
+                <p><small>For those staying—buckle up. This is going to be a bumpy, complicated, deliciously frustrating ride.</small></p>
             </div>
+        </div>
+    </div>
 
-            <!-- CODE: EPITAPH -->
-            <div class="story-section">
-                <div class="story-header" onclick="toggleStory('epitaph')">
-                    <h2 class="story-title"><span class="npf_color_ross">CODE : EPITAPH</span></h2>
-                    <span class="story-arrow" id="epitaph-arrow">▼</span>
-                </div>
-                <div class="story-content" id="epitaph-content">
-                    <div class="story-content-inner">
-                        <p><small>This isn't your standard enemies-to-lovers where they're at each other's throats one minute and tearing off clothes the next. This is full-blown hatred—visceral, authentic loathing that doesn't magically dissolve because of proximity or attraction. The "lovers" part is a long, painful road paved with blood, betrayal, and bruises that don't heal right.</small></p>
-                        <p><small>This story unfolds in a ruthless world where survival trumps morality, and both characters are deeply, irrevocably flawed. There's no clean hero or villain here—just two people shaped by trauma and choices they can't take back.</small></p>
-                        <p><b><span class="npf_color_ross">CONTENT WARNINGS.</span></b></p>
-                        <p>PLEASE READ CAREFULLY BEFORE PROCEEDING:</p>
-                        <p><small>• </small><small><b>Graphic Violence/Gore:</b></small><small> Detailed descriptions of injuries, torture, executions, and combat wounds. Blood features heavily throughout.</small></p>
-                        <p><small>• </small><small><b>Mutual Violence Between Main Characters</b></small><small>: Physical fights, restraint, and power struggles that sometimes blur into sexual tension.</small></p>
-                        <p><small>• </small><small><b>Intense Sexual Dynamics:</b></small><small> Sexual content is consensual, but often fueled by anger, resentment, and complicated emotions. Expect hate-fucking and physically intense encounters where their mutual loathing is part of the equation. Sex is sometimes used as a weapon, a release, or a way to avoid deeper connection.</small></p>
-                        <p><small>• </small><small><b>Alien World/Physics:</b></small><small> This is not Earth or even Earth-adjacent. Veyrah operates under different physical laws, with atmospheric plasma storms, altered gravity, and biological systems that would be impossible in our reality. The science here is its own beast. (Yes I took inspiration from Dune, yes I may regret it a little bit).</small></p>
-                        <p><small>• </small><small><b>Dystopian Brutality:</b></small><small> The world-building doesn't pull punches. Society is structured around exploitation, resource scarcity drives unthinkable choices, and survival often requires complicity in systems that are fundamentally cruel.</small></p>
-                        <p><b><small>• Class-Based Violence</small></b><small>: Extreme wealth inequality where social status determines access to basic survival needs like clean air, food, and medical care.</small></p>
-                        <p><small>• </small><small><b>Suicidal Ideation/Self-Destructive Behavior:</b></small><small> Characters contemplate death as an option and make choices that knowingly endanger themselves.</small></p>
-                        <p><small>• </small><b><small>Heat/Rut Cycles</small></b><small>: Biological breeding imperatives that override free will and rational thought. Characters experience uncontrollable mating urges triggered by planetary electromagnetic storms that can last 4-7 days.</small></p>
-                        <p><b><small>• Forced Proximity/Captivity</small></b><small>: Main characters are bound together against their will with a literal death countdown, creating claustrophobic psychological pressure.</small></p>
-                        <p><b><small>• Combat-Linked Sexual Arousal:</small></b><small> Victory in physical violence directly triggers sexual responses through specialized pheromones. Fighting and fucking are biologically connected.</small></p>
-                        <p><small>• </small><small>                <p><small>• </small><small><b>Child Death</b></small><small> (mentioned, not depicted): Background world-building includes references to children who died during the virus outbreak.</small></p>
+    <!-- CODE: EPITAPH -->
+    <div class="story-section">
+        <div class="story-header" onclick="toggleStory('epitaph')">
+            <h2 class="story-title"><span class="npf_color_ross">CODE : EPITAPH</span></h2>
+            <span class="story-arrow" id="epitaph-arrow">▼</span>
+        </div>
+        <div class="story-content" id="epitaph-content">
+            <div class="story-content-inner">
+                <p><small>This isn't your standard enemies-to-lovers where they're at each other's throats one minute and tearing off clothes the next. This is full-blown hatred—visceral, authentic loathing that doesn't magically dissolve because of proximity or attraction. The "lovers" part is a long, painful road paved with blood, betrayal, and bruises that don't heal right.</small></p>
+                <p><small>This story unfolds in a ruthless world where survival trumps morality, and both characters are deeply, irrevocably flawed. There's no clean hero or villain here—just two people shaped by trauma and choices they can't take back.</small></p>
+                <p><b><span class="npf_color_ross">CONTENT WARNINGS.</span></b></p>
+                <p>PLEASE READ CAREFULLY BEFORE PROCEEDING:</p>
+                <p><small>• </small><small><b>Graphic Violence/Gore:</b></small><small> Detailed descriptions of injuries, torture, executions, and combat wounds. Blood features heavily throughout.</small></p>
+                <p><small>• </small><small><b>Mutual Violence Between Main Characters</b></small><small>: Physical fights, restraint, and power struggles that sometimes blur into sexual tension.</small></p>
+                <p><small>• </small><small><b>Intense Sexual Dynamics:</b></small><small> Sexual content is consensual, but often fueled by anger, resentment, and complicated emotions. Expect hate-fucking and physically intense encounters where their mutual loathing is part of the equation. Sex is sometimes used as a weapon, a release, or a way to avoid deeper connection.</small></p>
+                <p><small>• </small><small><b>Alien World/Physics:</b></small><small> This is not Earth or even Earth-adjacent. Veyrah operates under different physical laws, with atmospheric plasma storms, altered gravity, and biological systems that would be impossible in our reality. The science here is its own beast. (Yes I took inspiration from Dune, yes I may regret it a little bit).</small></p>
+                <p><small>• </small><small><b>Dystopian Brutality:</b></small><small> The world-building doesn't pull punches. Society is structured around exploitation, resource scarcity drives unthinkable choices, and survival often requires complicity in systems that are fundamentally cruel.</small></p>
+                <p><b><small>• Class-Based Violence</small></b><small>: Extreme wealth inequality where social status determines access to basic survival needs like clean air, food, and medical care.</small></p>
+                <p><small>• </small><small><b>Suicidal Ideation/Self-Destructive Behavior:</b></small><small> Characters contemplate death as an option and make choices that knowingly endanger themselves.</small></p>
+                <p><small>• </small><b><small>Heat/Rut Cycles</small></b><small>: Biological breeding imperatives that override free will and rational thought. Characters experience uncontrollable mating urges triggered by planetary electromagnetic storms that can last 4-7 days.</small></p>
+                <p><b><small>• Forced Proximity/Captivity</small></b><small>: Main characters are bound together against their will with a literal death countdown, creating claustrophobic psychological pressure.</small></p>
+                <p><b><small>• Combat-Linked Sexual Arousal:</small></b><small> Victory in physical violence directly triggers sexual responses through specialized pheromones. Fighting and fucking are biologically connected.</small></p>
+                <p><small>• </small><small><b>Child Death</b></small><small> (mentioned, not depicted): Background world-building includes references to children who died during the virus outbreak.</small></p>
                 <p><small>• </small><small><b>Medical Trauma:</b></small><small> Forced medical procedures, experimentation, withdrawal symptoms, and invasive treatments.</small></p>
                 <p><small>• </small><small><b>Substance Use:</b></small><small> Characters use various substances to cope with pain, trauma, and the reality of their situation.</small></p>
                 <p><small>• </small><small><b>Psychological Torture/Manipulation:</b></small><small> Mind games, gaslighting, and intentional psychological warfare (shocker in my fics, I know).</small></p>
@@ -601,6 +491,7 @@
             </div>
         </div>
     </div>
+
     <!-- 5 SECONDS TO FREEDOM -->
     <div class="story-section">
         <div class="story-header" onclick="toggleStory('freedom')">
@@ -680,6 +571,8 @@
                 <p><small>- References to childhood emotional neglect/abuse</small></p>
                 <p><small>- Intense isolation and social detachment on both parts but for different motives.</small></p>
                 <p><small>- Descriptions of physical pain (dance injuries, self-inflicted)</small></p>
+                <p><small>- Contamination fears and extensive cleaning rituals</small></p>
+                                    <p><small>- Descriptions of physical pain (dance injuries, self-inflicted)</small></p>
                 <p><small>- Contamination fears and extensive cleaning rituals</small></p>
                 <p><small>- Codependency and unhealthy attachment formation</small></p>
                 <p><small>- Internalized misogyny and unhealthy female rivalry</small></p>
@@ -801,7 +694,7 @@
     <!-- OUT OF LINE -->
     <div class="story-section">
         <div class="story-header" onclick="toggleStory('outofline')">
-            <h2 class="story-title"><span style="color: #95bdd1"><b>O</b></span><span style="color: #a8beae"><b>U</b></span><span style="color: #bcbf8b"><b>T</b></span><b> </b><span style="color: #e4c146"><b>O</b></span><span style="color: #f8c224"><b>F</b></span><b> </b><span style="color: #d0c069"><b>L</b></span><span style="color: #bcbf8b"><b>I</b></span><span style="color: #a8beae"><b>N</b></span><span style="color: #95bdd1"><b>E</b></span></h2>
+            <h1 class="story-title"><span style="color: #95bdd1"><b>O</b></span><span style="color: #a8beae"><b>U</b></span><span style="color: #bcbf8b"><b>T</b></span><b> </b><span style="color: #e4c146"><b>O</b></span><span style="color: #f8c224"><b>F</b></span><b> </b><span style="color: #d0c069"><b>L</b></span><span style="color: #bcbf8b"><b>I</b></span><span style="color: #a8beae"><b>N</b></span><span style="color: #95bdd1"><b>E</b></span></h1>
             <span class="story-arrow" id="outofline-arrow">▼</span>
         </div>
         <div class="story-content" id="outofline-content">
@@ -831,50 +724,55 @@
                 </ul>
                 <p><small>If these themes don't sit right with you, that's more than okay—please take care of yourself and skip. But if you're into intense rivals-to-something-we-can't-name, with UEFA-level stakes and locker-room secrets they'll take to the grave?</small></p>
                 <p><small>Then... welcome to the match.</small></p>
-                <p><b>Take care of yourselves. Read at your own discretion.</b></p>
+                <h1><b>Take care of yourselves. Read at your own discretion.</b></h1>
             </div>
         </div>
     </div>
-        </div>
-    </div>
+</div>
 
-    <script>
-        function toggleStory(storyId) {
-            const content = document.getElementById(storyId + '-content');
-            const arrow = document.getElementById(storyId + '-arrow');
-            
-            if (content.classList.contains('open')) {
-                content.classList.remove('open');
-                arrow.classList.remove('rotated');
-                arrow.textContent = '▼';
-            } else {
-                content.classList.add('open');
-                arrow.classList.add('rotated');
-                arrow.textContent = '▲';
-            }
-        }
-
-        function toggleSpoiler(spoilerId) {
-            const content = document.getElementById(spoilerId + '-content');
-            
-            if (content.classList.contains('open')) {
-                content.classList.remove('open');
-            } else {
-                content.classList.add('open');
-            }
-        }
-
-        // Close all sections by default for mobile optimization
-        document.addEventListener('DOMContentLoaded', function() {
-            const allContent = document.querySelectorAll('.story-content');
+<script>
+    function toggleStory(storyId) {
+        const content = document.getElementById(storyId + '-content');
+        const arrow = document.getElementById(storyId + '-arrow');
+        
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            content.style.maxHeight = '0';
+            arrow.style.transform = 'rotate(0deg)';
+            arrow.textContent = '▼';
+        } else {
+            // Close all other sections
+            const allContents = document.querySelectorAll('.story-content');
             const allArrows = document.querySelectorAll('.story-arrow');
             
-            allContent.forEach(content => content.classList.remove('open'));
-            allArrows.forEach(arrow => {
-                arrow.classList.remove('rotated');
-                arrow.textContent = '▼';
+            allContents.forEach(c => {
+                c.classList.remove('open');
+                c.style.maxHeight = '0';
             });
-        });
-    </script>
+            
+            allArrows.forEach(a => {
+                a.style.transform = 'rotate(0deg)';
+                a.textContent = '▼';
+            });
+            
+            // Open the clicked section
+            content.classList.add('open');
+            content.style.maxHeight = content.scrollHeight + 'px';
+            arrow.style.transform = 'rotate(180deg)';
+            arrow.textContent = '▲';
+        }
+    }
+    
+    // Add smooth scrolling animation for content expansion
+    document.querySelectorAll('.story-content').forEach(content => {
+        content.style.transition = 'max-height 0.3s ease-in-out';
+    });
+    
+    document.querySelectorAll('.story-arrow').forEach(arrow => {
+        arrow.style.transition = 'transform 0.3s ease';
+    });
+</script>
+```
+
 </body>
 </html>
