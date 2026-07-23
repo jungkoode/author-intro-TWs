@@ -3,21 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jungkoode's author notes & content warnings</title>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>jungkoode's author notes &amp; content warnings</title>
+
+    <!-- companion page to the writing desk. same idea:
+         the bits you edit are marked, everything else runs itself.
+         each fic's notes are plain html down in the body — find the fic,
+         edit the text between the <p> tags. add a new paragraph by
+         copying any <p>...</p> line. that's all there is to it. -->
+
+    <script>
+    // optional: link back to the tracker page. leave "" to hide the link.
+    const DESK_URL = "";
+
+    // short labels for the quick-jump chips up top.
+    // add a line if you ever add a fic section below.
+    const SHORT_NAMES = {
+      fmu: "fmu",
+      kkangpae: "kgpgy",
+      hour25: "25h",
+      offlabels: "OL",
+      strings: "sa(tmh)",
+      unmanageable: "umng",
+      epitaph: "c:e",
+      freedom: "5stf",
+      altars: "asw",
+      presence: "ipy",
+      margins: "mg",
+      grewup: "wgu",
+      outofline: "ofl",
+    };
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Karla:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --sage-green: #9CAF88;
-            --light-sage: #B8C5A6;
-            --cream: #F5F3E7;
-            --soft-white: #FEFDF8;
-            --dark-text: #2D3319;
-            --accent-green: #7A8B6B;
-            --glass-bg: rgba(255, 255, 255, 0.85);
-            --glass-border: rgba(156, 175, 136, 0.2);
+            --ice: #EAEEF8;
+            --bg: #D7E0FF;
+            --soft: #CACFE6;
+            --medium: #B3BAD7;
+            --greylav: #A3A9BF;
+            --deep: #8D93A8;
+            --slate: #777D92;
+            --ink: #383D50;
+            --paper: rgba(255, 255, 255, 0.82);
         }
 
-        /* Tumblr NPF color classes */
+        /* tumblr npf colours, same ones the posts use */
         .npf_color_monica { color: #ff8a00 !important; }
         .npf_color_rachel { color: #00b8ff !important; }
         .npf_color_niles { color: #ff62cd !important; }
@@ -25,372 +58,342 @@
         .npf_color_chandler { color: #7c5cff !important; }
         .npf_color_ross { color: #00cf35 !important; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--soft-white) 0%, var(--cream) 50%, var(--light-sage) 100%);
-            color: var(--dark-text);
-            line-height: 1.4;
-            padding: 0.75rem;
+            font-family: 'Karla', sans-serif;
+            background:
+                radial-gradient(ellipse 80% 50% at 20% -10%, rgba(255,255,255,0.7), transparent),
+                linear-gradient(160deg, var(--ice) 0%, var(--bg) 55%, var(--soft) 100%);
+            background-attachment: fixed;
+            color: var(--ink);
             min-height: 100vh;
-            overflow-x: hidden;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 100%;
+            max-width: 720px;
             margin: 0 auto;
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            border-radius: 20px;
-            padding: 1rem;
-            box-shadow: 
-                0 8px 32px rgba(156, 175, 136, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
-            border: 1px solid var(--glass-border);
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
+            padding: 2.5rem 1.25rem 3rem;
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 0.75rem;
-            flex-shrink: 0;
+        .header { text-align: center; margin-bottom: 1.8rem; }
+
+        .header .stars {
+            color: var(--medium);
+            letter-spacing: 1.4rem;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 0.8rem;
+            padding-left: 1.4rem;
         }
 
         h1 {
-            font-family: 'Crimson Text', serif;
-            font-size: 1.8rem;
+            font-family: 'Fraunces', serif;
             font-weight: 600;
-            color: var(--accent-green);
-            margin-bottom: 0.25rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            background: linear-gradient(135deg, var(--accent-green), var(--sage-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: clamp(1.9rem, 6.5vw, 2.6rem);
+            letter-spacing: -0.02em;
+            color: var(--ink);
         }
+
+        h1 em { font-style: italic; color: var(--slate); }
 
         .subtitle {
-            font-family: 'Crimson Text', serif;
-            font-size: 1rem;
-            color: var(--dark-text);
-            opacity: 0.8;
-            margin-bottom: 0.5rem;
+            font-style: italic;
+            color: var(--slate);
+            margin-top: 0.3rem;
         }
 
+        .desk-link {
+            display: none;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--slate);
+            background: var(--paper);
+            border: 1px solid var(--soft);
+            border-radius: 999px;
+            padding: 0.25rem 0.9rem;
+            text-decoration: none;
+        }
+
+        .desk-link:hover { border-color: var(--medium); color: var(--ink); }
+
+        /* the big disclaimer up top */
         .general-note {
-            background: linear-gradient(135deg, rgba(184, 197, 166, 0.15), rgba(156, 175, 136, 0.1));
-            backdrop-filter: blur(8px);
-            border-radius: 12px;
-            padding: 0.75rem;
-            margin-bottom: 0.75rem;
-            border: 1px solid rgba(156, 175, 136, 0.3);
-            border-left: 3px solid var(--sage-green);
-            flex-shrink: 0;
+            background: var(--paper);
+            border: 1px solid var(--soft);
+            border-left: 4px solid var(--medium);
+            border-radius: 16px;
+            padding: 1.3rem 1.4rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 24px rgba(141, 147, 168, 0.18);
         }
 
         .general-note h3 {
-            font-family: 'Crimson Text', serif;
-            font-size: 0.9rem;
-            color: var(--dark-text);
-            margin-bottom: 0.5rem;
+            font-family: 'Fraunces', serif;
             font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 0.6rem;
         }
 
         .general-note p {
-            font-size: 0.75rem;
-            line-height: 1.3;
-            margin-bottom: 0.4rem;
+            font-size: 0.92rem;
+            margin-bottom: 0.7rem;
         }
 
-        .general-note p:last-child {
-            margin-bottom: 0;
-        }
+        .general-note p:last-child { margin-bottom: 0; }
 
-        .stories-container {
-            flex: 1;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            padding-right: 2px;
-        }
+        /* fic note cards */
+        .stories { display: grid; gap: 1rem; }
 
         .story-section {
-            margin-bottom: 0.5rem;
-            border-radius: 12px;
+            background: var(--paper);
+            border: 1px solid var(--soft);
+            border-radius: 16px;
             overflow: hidden;
-            background: var(--glass-bg);
-            backdrop-filter: blur(8px);
-            border: 1px solid var(--glass-border);
-            box-shadow: 
-                0 4px 16px rgba(156, 175, 136, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.4);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: box-shadow 0.3s ease;
         }
 
-        .story-section:hover {
-            transform: translateY(-2px);
-            box-shadow: 
-                0 8px 25px rgba(156, 175, 136, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
-        }
+        .story-section:hover { box-shadow: 0 8px 22px rgba(141, 147, 168, 0.25); }
 
         .story-header {
-            background: linear-gradient(135deg, var(--light-sage), var(--sage-green));
-            padding: 0.75rem 1rem;
-            cursor: pointer;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .story-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .story-header:hover::before {
-            left: 100%;
-        }
-
-        .story-header:active {
-            transform: scale(0.98);
+            justify-content: space-between;
+            gap: 0.75rem;
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            user-select: none;
         }
 
         .story-title {
-            font-family: 'Crimson Text', serif;
-            font-size: 1rem;
+            font-family: 'Fraunces', serif;
             font-weight: 600;
-            color: var(--dark-text);
-            text-shadow: none;
-            z-index: 2;
-            position: relative;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 0.4rem 0.8rem;
-            border-radius: 8px;
-            border: 1px solid rgba(156, 175, 136, 0.4);
-            box-shadow: 
-                0 2px 8px rgba(156, 175, 136, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(4px);
-            flex-shrink: 0;
-        }
-
-        .story-arrow {
-            font-size: 1rem;
-            color: white;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 2;
-            position: relative;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-        }
-
-        .story-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            background: var(--soft-white);
-            border-top: 1px solid rgba(156, 175, 136, 0.1);
-        }
-
-        .story-content.open {
-            max-height: none;
-        }
-
-        .story-content-inner {
-            padding: 0.75rem;
-            font-size: 0.7rem;
+            font-size: 1.05rem;
             line-height: 1.3;
         }
 
-        .story-content-inner p {
-            margin-bottom: 0.4rem;
-        }
-
-        .story-content-inner p:last-child {
-            margin-bottom: 0;
-        }
-
-        .story-content-inner ul {
-            margin-left: 1rem;
-            margin-bottom: 0.4rem;
-        }
-
-        .story-content-inner li {
-            margin-bottom: 0.25rem;
-        }
-
-        .story-content-inner h2, .story-content-inner h1 {
-            font-family: 'Crimson Text', serif;
+        .story-arrow {
+            flex: 0 0 auto;
+            color: var(--greylav);
             font-size: 0.8rem;
-            margin: 0.5rem 0 0.3rem 0;
-            color: var(--dark-text);
+            transition: transform 0.3s ease;
         }
 
-        small {
-            font-size: inherit;
+        .story-section.open .story-arrow { transform: rotate(180deg); }
+
+        .story-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.45s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        b, strong {
-            font-weight: 600;
+        .story-section.open .story-content { grid-template-rows: 1fr; }
+
+        .story-content-inner {
+            overflow: hidden;
+            padding: 0 1.25rem;
+            font-size: 0.92rem;
         }
 
-        /* Custom colors */
-        [style*="color: #8b1b08"] { color: #8b1b08 !important; }
-        [style*="color: #d034d2"] { color: #d034d2 !important; }
-        [style*="color: #f8bdd9"] { color: #f8bdd9 !important; }
-        [style*="color: #856c49"] { color: #856c49 !important; }
-        [style*="color: #8d7452"] { color: #8d7452 !important; }
-        [style*="color: #9e8565"] { color: #9e8565 !important; }
-        [style*="color: #a78e6e"] { color: #a78e6e !important; }
-        [style*="color: #b09778"] { color: #b09778 !important; }
-        [style*="color: #c1a88b"] { color: #c1a88b !important; }
-        [style*="color: #cab194"] { color: #cab194 !important; }
-        [style*="color: #d2b99e"] { color: #d2b99e !important; }
-        [style*="color: #dbc2a7"] { color: #dbc2a7 !important; }
-        [style*="color: #e3cab1"] { color: #e3cab1 !important; }
-        [style*="color: #b89f81"] { color: #b89f81 !important; }
-        [style*="color: #967d5b"] { color: #967d5b !important; }
-        [style*="color: #797979"] { color: #797979 !important; }
-        [style*="color: #15a394"] { color: #15a394 !important; }
-        [style*="color: #95bdd1"] { color: #95bdd1 !important; }
-        [style*="color: #a8beae"] { color: #a8beae !important; }
-        [style*="color: #bcbf8b"] { color: #bcbf8b !important; }
-        [style*="color: #e4c146"] { color: #e4c146 !important; }
-        [style*="color: #f8c224"] { color: #f8c224 !important; }
-        [style*="color: #d0c069"] { color: #d0c069 !important; }
-        [style*="color: #907756"] { color: #907756 !important; }
-        [style*="color: #9c8363"] { color: #9c8363 !important; }
-        [style*="color: #a88f70"] { color: #a88f70 !important; }
-        [style*="color: #b49b7d"] { color: #b49b7d !important; }
-        [style*="color: #c0a78a"] { color: #c0a78a !important; }
-        [style*="color: #ccb397"] { color: #ccb397 !important; }
-        [style*="color: #e4cbb1"] { color: #e4cbb1 !important; }
-        [style*="color: #d8bfa4"] { color: #d8bfa4 !important; }
-        [style*="color: #a1bdbb"] { color: #a1bdbb !important; }
-        [style*="color: #adbea5"] { color: #adbea5 !important; }
-        [style*="color: #babf90"] { color: #babf90 !important; }
-        [style*="color: #c6c07a"] { color: #c6c07a !important; }
-        [style*="color: #d2c064"] { color: #d2c064 !important; }
-        [style*="color: #dfc14f"] { color: #dfc14f !important; }
-        [style*="color: #ebc239"] { color: #ebc239 !important; }
+        .story-section.open .story-content-inner { padding-bottom: 1.25rem; }
 
-        /* Scrollbar styling */
-        .stories-container::-webkit-scrollbar {
-            width: 3px;
-        }
+        .story-content-inner > :first-child { margin-top: 0.2rem; }
 
-        .stories-container::-webkit-scrollbar-track {
-            background: rgba(156, 175, 136, 0.1);
-            border-radius: 2px;
-        }
+        .story-content-inner p { margin-bottom: 0.8rem; }
 
-        .stories-container::-webkit-scrollbar-thumb {
-            background: var(--sage-green);
-            border-radius: 2px;
-        }
+        .story-content-inner p:last-child { margin-bottom: 0; }
 
-        .stories-container::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-green);
-        }
-
-        /* Spoiler styling */
+        /* nested spoiler boxes for the anxious readers */
         .spoiler {
-            background: linear-gradient(135deg, rgba(139, 27, 8, 0.1), rgba(139, 27, 8, 0.05));
-            border: 1px solid rgba(139, 27, 8, 0.2);
-            border-radius: 8px;
-            padding: 0.5rem;
-            margin: 0.5rem 0;
-            position: relative;
+            border: 1px dashed var(--greylav);
+            border-radius: 12px;
+            margin: 1rem 0;
+            overflow: hidden;
+            background: var(--ice);
         }
 
         .spoiler-header {
-            font-weight: 600;
-            color: #8b1b08;
-            margin-bottom: 0.3rem;
-            cursor: pointer;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-        }
-
-        .spoiler-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .spoiler-content.open {
-            max-height: 500px;
+            justify-content: space-between;
+            gap: 0.75rem;
+            padding: 0.7rem 1rem;
+            cursor: pointer;
+            user-select: none;
+            font-size: 0.85rem;
         }
 
         .spoiler-arrow {
+            flex: 0 0 auto;
+            color: var(--greylav);
+            font-size: 0.75rem;
             transition: transform 0.3s ease;
+        }
+
+        .spoiler.open .spoiler-arrow { transform: rotate(180deg); }
+
+        .spoiler-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .spoiler.open .spoiler-content { grid-template-rows: 1fr; }
+
+        .spoiler-content-inner {
+            overflow: hidden;
+            padding: 0 1rem;
+        }
+
+        .spoiler.open .spoiler-content-inner { padding-bottom: 0.9rem; }
+
+        /* quick-jump chips */
+        .fic-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            justify-content: center;
+            margin-bottom: 1.6rem;
+        }
+
+        .fic-nav-chip {
+            font-family: 'Karla', sans-serif;
+            font-size: 0.82rem;
+            border: 1px solid var(--soft);
+            background: var(--paper);
+            color: var(--slate);
+            border-radius: 999px;
+            padding: 0.3rem 0.85rem;
+            cursor: pointer;
+            transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+        }
+
+        .fic-nav-chip:hover { border-color: var(--medium); }
+
+        .fic-nav-chip.active {
+            background: var(--ink);
+            color: var(--ice);
+            border-color: var(--ink);
+        }
+
+        .story-section { scroll-margin-top: 0.9rem; }
+
+        /* skip-to-warnings + close affordances inside cards */
+        .jump-warnings {
+            font-family: 'Karla', sans-serif;
             font-size: 0.8rem;
+            color: var(--slate);
+            background: var(--ice);
+            border: 1px solid var(--soft);
+            border-radius: 999px;
+            padding: 0.3rem 0.9rem;
+            cursor: pointer;
+            margin: 0.2rem 0 0.9rem;
+            transition: border-color 0.25s ease, color 0.25s ease;
         }
 
-        /* Animation enhancements */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .jump-warnings:hover { border-color: var(--medium); color: var(--ink); }
+
+        .warnings-anchor { scroll-margin-top: 0.9rem; }
+
+        .close-card {
+            display: block;
+            font-family: 'Karla', sans-serif;
+            font-size: 0.8rem;
+            font-style: italic;
+            color: var(--greylav);
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin: 1.1rem auto 0;
+            padding: 0.3rem 0.8rem;
         }
 
-        .story-section {
-            animation: fadeInUp 0.3s ease forwards;
+        .close-card:hover { color: var(--slate); }
+
+        /* floating back-to-top */
+        .to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            width: 2.6rem;
+            height: 2.6rem;
+            border-radius: 50%;
+            border: 1px solid var(--soft);
+            background: var(--paper);
+            color: var(--slate);
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(141, 147, 168, 0.3);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 20;
         }
 
-        .story-section:nth-child(even) {
-            animation-delay: 0.1s;
+        .to-top.show { opacity: 1; pointer-events: auto; }
+
+        .fic-nav-chip:focus-visible,
+        .jump-warnings:focus-visible,
+        .close-card:focus-visible,
+        .to-top:focus-visible,
+        .story-header:focus-visible,
+        .spoiler-header:focus-visible {
+            outline: 2px solid var(--slate);
+            outline-offset: 2px;
         }
 
-        .story-section:nth-child(odd) {
-            animation-delay: 0.05s;
+        .footer {
+            text-align: center;
+            color: var(--greylav);
+            font-size: 0.85rem;
+            margin-top: 2.2rem;
+            letter-spacing: 0.6rem;
+            padding-left: 0.6rem;
+        }
+
+        @media (max-width: 540px) {
+            .container { padding: 1.8rem 1rem 2.4rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .story-content, .spoiler-content, .story-arrow, .spoiler-arrow { transition: none; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1><b>AUTHOR INTRO NOTES</b></h1>
-            <div class="subtitle">READ BEFORE ENGAGING</div>
-        </div>
+
+        <header class="header">
+            <span class="stars">&#10022; &#10022; &#10022;</span>
+            <h1>author <em>notes</em> &amp; content warnings</h1>
+            <p class="subtitle">read these before you dive in, yeah?</p>
+            <a class="desk-link" id="deskLink" href="#">&larr; back to the writing desk</a>
+        </header>
 
         <div class="general-note">
-            <h3><b>General note—disclaimer.</b></h3>
+<h3><b>General note—disclaimer.</b></h3>
             <p>All my fics are written in a limited point of view. That means you're in the characters' heads—their thoughts, their feelings, their perceptions. It is not omniscient. What they think is what you read. That includes incorrect assumptions, emotional spirals, missing context, misinformation, internal contradictions, projections, and deeply flawed logic. Just like real people.</p>
             <p>The narration is unreliable on purpose. Psychological realism is the foundation of everything I write. You're not getting the full truth—you're getting the character's truth. And if that frustrates you, that's okay. But this space isn't built for neat, all-knowing storytelling. It's built to feel like real internal chaos.</p>
         </div>
 
-        <div class="stories-container">
+        <!-- ============================================================
+             fic notes start here. each fic is one story-section block.
+             to edit: find the fic, change the text inside the <p> tags.
+             new paragraph = copy a whole <p>...</p> line.
+             ============================================================ -->
+
+        <nav class="fic-nav" id="ficNav" aria-label="jump to a fic"></nav>
+
+        <main class="stories">
             <!-- FUCK ME UP -->
-            <div class="story-section">
+            <section class="story-section" id="fmu-section">
                 <div class="story-header" onclick="toggleStory('fmu')">
                     <div class="story-title"><span class="npf_color_monica">FUCK ME UP</span></div>
-                    <span class="story-arrow" id="fmu-arrow">▼</span>
+                    <span class="story-arrow">&#9662;</span>
                 </div>
-                <div class="story-content" id="fmu-content">
+                <div class="story-content">
                     <div class="story-content-inner">
                         <p>I am merely writing this for my own sanity.</p>
                         <p>I've been working on another fic—t̶h̶a̶t̶'̶s̶ ̶s̶t̶i̶l̶l̶ ̶i̶n̶ ̶m̶y̶ ̶d̶r̶a̶f̶t̶s̶ ̶b̶e̶c̶a̶u̶s̶e̶ ̶I̶ ̶c̶a̶n̶'̶t̶ ̶w̶r̶i̶t̶e̶ ̶a̶ ̶s̶i̶n̶g̶l̶e̶ ̶l̶i̶n̶e̶ ̶w̶i̶t̶h̶o̶u̶t̶ ̶o̶v̶e̶r̶t̶h̶i̶n̶k̶i̶n̶g̶ ̶ˢᵒᵐᵉᵗʰⁱⁿᵍ...—but it's so intricate and complicated that it's giving me literal headaches.</p>
@@ -454,15 +457,15 @@
                         <p>(Trust me to overcomplicate this somehow. I just love psychological drama, okay? FML.)</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- KKANGPAE -->
-            <div class="story-section">
+            <!-- KKANGPAE GYORI -->
+            <section class="story-section" id="kkangpae-section">
                 <div class="story-header" onclick="toggleStory('kkangpae')">
-                    <div class="story-title"><span style="color: #8b1b08">KKANGPAE</span></div>
-                    <span class="story-arrow" id="kkangpae-arrow">▼</span>
+                    <div class="story-title"><span style="color: #8b1b08">KKANGPAE GYORI</span></div>
+                    <span class="story-arrow">&#9662;</span>
                 </div>
-                <div class="story-content" id="kkangpae-content">
+                <div class="story-content">
                     <div class="story-content-inner">
                         <p>Before reading, I want to address some things:</p>
                         <p>⊕This fanfic is Jungkook x female reader. For the most part, I try to avoid "Y/N" mentions because they give me the ick - but bear with me if there are any. If there are, I promise they'll be few and far between. 🙏🏻</p>
@@ -480,20 +483,20 @@
                         <p>This is not a fic where things happen just for the sake of drama or shock value. Every action, every consequence, every emotional reaction has intention behind it. If a character's choices don't make sense to you at first, that's okay—but trust that they make sense to them within the context of their experiences. If you don't understand a character's actions, I encourage you to lean into that curiosity rather than dismissing them outright.</p>
                         <p>At the end of the day, you don't have to like or agree with every character, but I do ask that you engage with them as they are: human, not perfect. If that's something you enjoy in a story, I think you'll appreciate what I've built here.</p>
                         
-                        <div class="spoiler">
-                            <div class="spoiler-header" onclick="toggleSpoiler('kkangpae-spoiler')">
-                                <span style="color: #8b1b08"><b>SPOILER SECTION - For Anxious Readers</b></span>
-                                <span class="spoiler-arrow" id="kkangpae-spoiler-arrow">▼</span>
-                            </div>
-                            <div class="spoiler-content" id="kkangpae-spoiler-content">
+                        <div class="spoiler" id="kkangpae-spoiler-box">
+<div class="spoiler-header" onclick="toggleSpoiler('kkangpae-spoiler')">
+<span style="color: #8b1b08"><b>SPOILER SECTION - For Anxious Readers</b></span>
+<span class="spoiler-arrow">&#9662;</span>
+</div>
+<div class="spoiler-content"><div class="spoiler-content-inner">
                                 <p><b>!!!</b></p>
                                 <p>Now, a couple additional things for my fellow anxious readers. Don't read these if you want to go completely blind and avoid any hints.</p>
                                 <p><b>!!!</b></p>
                                 <p>⊕Okay, before you read the prologue and think "oh god not one of those fics again where he keeps comparing you to her" I want to make it very clear it's not like that, I promise. I hate that as much as you, if not more. Whilst Jeon's backstory is heavy, I'm not gonna make y/n a poor excuse of a replacement. Makes me sick to my stomach. Hell fucking no. But dude's got problems, bear with him please. <3</p>
                                 <p>⊕It's a happy ending, guys. Don't worry. I'm a sucker for angst, but a bitch for sad endings. Can't stand them, won't stand them. World is already depressing enough as it is, no need for contributors.</p>
                                 <p><b>!!!</b></p>
-                            </div>
-                        </div>
+                            </div></div>
+</div>
 
                         <p><b><span style="color: #8b1b08">A note on heavy topics:</span></b></p>
                         <p>This fic delves heavily into delicate topics that some readers might not be able to stomach. Please read at your OWN discretion. There's violence, graphic gore scenes, human trafficking / sexual violence (not on the reader and not graphically depicted), improper drug and alcohol use and the sorts.</p>
@@ -502,15 +505,15 @@
                         <p>Mental health concerns, mental illnesses, alcohol abuse, drug abuse, mention of pills, insomnia, PTSD, anxiety, panic attacks, BPD, ASPD, narcissism, alcoholism (none directly mentioned but you can make your guesses), everyone is traumatized (lmao sorry), everyone has a backstory, intricate plot, death of minor characters, murder, swearing, violence, descriptive and explicit sex (a lot of it): praise kink, humiliation kink, oral sex (f&m), fingering, sex toys (f&m), public and semi-public sex, teasing, blindfolds, sensorial play, knife play (don't even ask.), degradation kink, secret sex, both switchy (JK usually leads), aphrodisiacs, begging, ass play, tit play, dry humping, makeup sex, morning sex, angry sex, masturbation (both alone and mutual), sex not in bed, 69, striptease, vaginal sex, accidental stimulation, dirty talk, biting, breath play, choking, deep throating, edging, face sitting, impact play (spanking and such), overstimulation, orgasm denial, restraints (ropes, chains, handcuffs), body worship, cock warming, ejaculation, mirrors, fuck buddies and i don't fucking know what else to say but yeah you've been warned. what you see is what you'll read.</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- THE 25TH HOUR -->
-            <div class="story-section">
+            <section class="story-section" id="hour25-section">
                 <div class="story-header" onclick="toggleStory('hour25')">
                     <div class="story-title"><span class="npf_color_rachel">THE 25TH HOUR</span></div>
-                    <span class="story-arrow" id="hour25-arrow">▼</span>
+                    <span class="story-arrow">&#9662;</span>
                 </div>
-                <div class="story-content" id="hour25-content">
+                <div class="story-content">
                     <div class="story-content-inner">
                         <p>Welcome to "The 25th Hour" - a story about time, choice, and the weight of memories we don't remember carrying.</p>
                         <p><span class="npf_color_rachel"><b>CONTENT WARNINGS:</b></span></p>
@@ -571,15 +574,15 @@
                         <p><b>Remember: Your mental health comes first. If any themes become too heavy, please take care of yourself and step back when needed.</b></p>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- OFF-LABELS -->
-            <div class="story-section">
+            <section class="story-section" id="offlabels-section">
                 <div class="story-header" onclick="toggleStory('offlabels')">
                     <div class="story-title"><span class="npf_color_niles">OFF-LABELS</span></div>
-                    <span class="story-arrow" id="offlabels-arrow">▼</span>
+                    <span class="story-arrow">&#9662;</span>
                 </div>
-                <div class="story-content" id="offlabels-content">
+                <div class="story-content">
                     <div class="story-content-inner">
                         <p>This is a story about desire, tension, and the delicious space between what we say and what we mean. It explores the dynamic between a seemingly innocent mentor figure who knows exactly what he's doing and a very willing student who's simultaneously flustered by and eager for his attention.</p>
                         <p>While Jung Hoseok's likeness is used as inspiration, this is entirely fictional and not meant to reflect the real person in any way.</p>
@@ -607,15 +610,15 @@
                         <p><b>TL;DR</b>: This is meant to be hot and fun, not emotionally devastating. The only tears here will be from... enthusiastic oral practice. For academic purposes, of course. 👀</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- STRINGS ATTACHED -->
-            <div class="story-section">
+            <section class="story-section" id="strings-section">
                 <div class="story-header" onclick="toggleStory('strings')">
                     <div class="story-title"><span class="npf_color_joey">SA(TMH)</span></div>
-                    <span class="story-arrow" id="strings-arrow">▼</span>
+                    <span class="story-arrow">&#9662;</span>
                 </div>
-                <div class="story-content" id="strings-content">
+                <div class="story-content">
                     <div class="story-content-inner">
                         <p>Welcome to "Strings attached (to my heart)," a Spider-Man AU set in the bustling streets of Seoul. Before we begin, I'd like to establish a few important points:</p>
                         <p><b>Content Warnings:</b></p>
@@ -639,15 +642,15 @@
                         <p>Thank you for being here, and I hope you'll approach these characters with the same complexity and understanding with which they were created.</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- UNMANAGEABLE -->
-            <div class="story-section">
+            <section class="story-section" id="unmanageable-section">
                 <div class="story-header" onclick="toggleStory('unmanageable')">
                     <div class="story-title"><span class="npf_color_chandler">UNMANAGEABLE</span></div>
-                    <span class="story-arrow" id="unmanageable-arrow">▼</span>
+                    <span class="story-arrow">&#9662;</span>
                 </div>
-                <div class="story-content" id="unmanageable-content">
+                <div class="story-content">
                     <div class="story-content-inner">
                         <p>Welcome to UNMANAGEABLE (UM)—my new enemies-to-lovers slow burn featuring Jungkook and Y/N. And when I say <i>enemies</i>, I mean <b>ENEMIES</b>.</p>
                         <p>I've noticed a trend in the "enemies-to-lovers" genre where characters start as mild antagonists and quickly soften into flirty banter by chapter three. That's not this story. This is about two genuinely incompatible people with competing agendas who absolutely cannot stand each other. The hatred is real, sustained, and occasionally vicious. There will be professional sabotage, cruelty, and psychological warfare before there's even a hint of attraction.</p>
@@ -678,15 +681,15 @@
                         <p>For those staying—buckle up. This is going to be a bumpy, complicated, deliciously frustrating ride.</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- CODE: EPITAPH -->
-            <div class="story-section">
+            <section class="story-section" id="epitaph-section">
                 <div class="story-header" onclick="toggleStory('epitaph')">
                     <div class="story-title"><span class="npf_color_ross">CODE : EPITAPH</span></div>
-                    <span class="story-arrow" id="epitaph-arrow">▼</span>
+                    <span class="story-arrow">&#9662;</span>
                 </div>
-                <div class="story-content" id="epitaph-content">
+                <div class="story-content">
                     <div class="story-content-inner">
                         <p>This isn't your standard enemies-to-lovers where they're at each other's throats one minute and tearing off clothes the next. This is full-blown hatred—visceral, authentic loathing that doesn't magically dissolve because of proximity or attraction. The "lovers" part is a long, painful road paved with blood, betrayal, and bruises that don't heal right.</p>
                         <p>This story unfolds in a ruthless world where survival trumps morality, and both characters are deeply, irrevocably flawed. There's no clean hero or villain here—just two people shaped by trauma and choices they can't take back.</p>
@@ -713,17 +716,16 @@
                         <p>If you're looking for a fluffy romance or quick redemption arcs, this isn't it. But if you want to follow two enemies forced to face each other—and themselves—in a world that's determined to break them both, I hope you'll stay for the journey.</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
-<!-- 5 SECONDS TO FREEDOM -->
-
-<div class="story-section">
-    <div class="story-header" onclick="toggleStory('freedom')">
-        <div class="story-title"><span style="color: #d034d2">5 SECONDS TO FREEDOM</span></div>
-        <span class="story-arrow" id="freedom-arrow">▼</span>
-    </div>
-    <div class="story-content" id="freedom-content">
-        <div class="story-content-inner">
+            <!-- 5 SECONDS TO FREEDOM -->
+            <section class="story-section" id="freedom-section">
+                <div class="story-header" onclick="toggleStory('freedom')">
+                    <div class="story-title"><span style="color: #d034d2">5 SECONDS TO FREEDOM</span></div>
+                    <span class="story-arrow">&#9662;</span>
+                </div>
+                <div class="story-content">
+                    <div class="story-content-inner">
             <p>Welcome to the streets of Tokyo after dark, where everything is decided in the first five seconds.</p>
             <p>You, heir to one of Japan's most prestigious automotive dynasties, lead a dangerous double life in Tokyo's ruthless underground racing scene. When the mysterious Latino street racer known only as "Jaque" roars into your world, the collision course is set—two rivals burning rubber toward an inevitable crash.</p>
             <p>This is a story about forbidden attraction, the weight of family expectations, the thrill of the race, and finding freedom in the most unexpected places. It's about two people from different worlds who recognize something in each other that no one else sees.</p>
@@ -817,15 +819,16 @@
             <p>Your mental health and comfort are more important than any story.</p>
             <p>Ready? Light's about to turn green.</p>
         </div>
-    </div>
-</div>
+                </div>
+            </section>
+
             <!-- ALTARS IN SHALLOW WATERS -->
-            <div class="story-section">
+            <section class="story-section" id="altars-section">
                 <div class="story-header" onclick="toggleStory('altars')">
                     <div class="story-title"><span style="color: #f8bdd9">ALTARS IN SHALLOW WATERS</span></div>
-                    <span class="story-arrow" id="altars-arrow">▼</span>
+                    <span class="story-arrow">&#9662;</span>
                 </div>
-                <div class="story-content" id="altars-content">
+                <div class="story-content">
                     <div class="story-content-inner">
                         <p>Before you dive into Altars in Shallow Waters, a few important notes:</p>
                         <p>This is a dark psychological romance that begins as strangers-to-obsession-to-lovers, with heavy emphasis on the obsession. This story explores unhealthy fixation, ritualistic behavior, and the thin line between worship and possession. The romantic elements develop slowly through a psychological lens, rather than a traditional romance structure.</p>
@@ -853,15 +856,15 @@
                         <p>This is a slow descent into mutual obsession. If you're looking for healthy romance with clear communication and balanced dynamics, this isn't that story. This is about what happens when worship becomes identity and fixation becomes purpose.</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- IN THE PRESENCE OF YOU -->
-            <div class="story-section">
+            <section class="story-section" id="presence-section">
                 <div class="story-header" onclick="toggleStory('presence')">
                     <div class="story-title"><b><span style="color: #856c49">I</span></b><b><span style="color: #8d7452">N</span></b><b> </b><b><span style="color: #9e8565">T</span></b><b><span style="color: #a78e6e">H</span></b><b><span style="color: #b09778">E</span></b><b> </b><b><span style="color: #c1a88b">P</span></b><b><span style="color: #cab194">R</span></b><b><span style="color: #d2b99e">E</span></b><b><span style="color: #dbc2a7">S</span></b><b><span style="color: #e3cab1">E</span></b><b><span style="color: #dbc2a7">N</span></b><b><span style="color: #d2b99e">C</span></b><b><span style="color: #cab194">E</span></b><b> </b><b><span style="color: #b89f81">O</span></b><b><span style="color: #b09778">F</span></b><b> </b><b><span style="color: #9e8565">Y</span></b><b><span style="color: #967d5b">O</span></b><b><span style="color: #8d7452">U</span></b></div>
-                    <span class="story-arrow" id="presence-arrow">▼</span>
+                    <span class="story-arrow">&#9662;</span>
                 </div>
-                <div class="story-content" id="presence-content">
+                <div class="story-content">
                     <div class="story-content-inner">
                         <p>This is a slow-burn for the patient—we're talking glacial pace that will probably have you throwing your device across the room at least once. But I promise every lingering glance and accidental touch will be worth the wait.</p>
                         <h2><b><span style="color: #856c49">C</span></b><span style="color: #907756"><b>O</b></span><span style="color: #9c8363"><b>N</b></span><span style="color: #a88f70"><b>T</b></span><span style="color: #b49b7d"><b>E</b></span><span style="color: #c0a78a"><b>N</b></span><span style="color: #ccb397"><b>T</b></span><b> </b><span style="color: #e4cbb1"><b>W</b></span><span style="color: #d8bfa4"><b>A</b></span><span style="color: #ccb397"><b>R</b></span><span style="color: #c0a78a"><b>N</b></span><span style="color: #b49b7d"><b>I</b></span><span style="color: #a88f70"><b>N</b></span><span style="color: #9c8363"><b>G</b></span><span style="color: #907756"><b>S</b></span><b>  </b></h2>
@@ -890,15 +893,15 @@
                         <p>This is ultimately a story about healing, growth, and finding love in unexpected places—but we go through some dark corridors to get there. If at any point you need to step away, please do. Take care of yourselves.</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- MARGINS -->
-            <div class="story-section">
+            <section class="story-section" id="margins-section">
                 <div class="story-header" onclick="toggleStory('margins')">
                     <div class="story-title"><b><span style="color: #797979">MARGINS</span></b></div>
-                    <span class="story-arrow" id="margins-arrow">▼</span>
+                    <span class="story-arrow">&#9662;</span>
                 </div>
-                <div class="story-content" id="margins-content">
+                <div class="story-content">
                     <div class="story-content-inner">
                         <p>MARGINS is my take on the classic cat-and-dog dynamic—a publishing house romcom with all the chaos, bickering, and professional warfare that comes when two fundamentally incompatible people are forced to work together. Think chaotic golden retriever energy meets meticulous cat precision, but make it publishing drama.</p>
                         <p>While the story has plenty of workplace comedy and chaotic interactions, I can't help but dive into the psychological undercurrents (it's just who I am). Beneath the surface bickering and coffee-stained manuscripts lies a deeper examination of perfectionism, creative anxiety, and the masks we wear in professional settings.</p>
@@ -925,15 +928,15 @@
                         <p>The sexual content ramps up significantly as the story progresses, and while there's humor throughout, I don't shy away from the raw realities of creative burnout, professional pressure, or the messier sides of their relationship. Their journey from workplace nemeses to something more complicated is neither gentle nor particularly healthy at first—these two have to crash and burn a few times before they figure anything out.</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- WE GREW UP SOMEWHERE ALONG THE WAY -->
-            <div class="story-section">
+            <section class="story-section" id="grewup-section">
                 <div class="story-header" onclick="toggleStory('grewup')">
                     <div class="story-title"><b><span style="color: #15a394">WE GREW UP SOMEWHERE ALONG THE WAY</span></b></div>
-                    <span class="story-arrow" id="grewup-arrow">▼</span>
+                    <span class="story-arrow">&#9662;</span>
                 </div>
-                <div class="story-content" id="grewup-content">
+                <div class="story-content">
                     <div class="story-content-inner">
                         <p>Welcome to "We Grew Up Somewhere Along the Way," a story about two people who somehow missed the exit to adulthood and found themselves circling back to each other instead.</p>
                         <p>This fic explores the particular brand of loneliness that comes from being in your mid-twenties and realizing you have no idea who you're supposed to be by now. It's about childhood friends who reconnect in a foreign city and discover that while everything has changed, nothing actually has—including the way they orbit each other without ever quite touching.</p>
@@ -959,15 +962,15 @@
                         <p>This story is NOT for readers under 18. I mean it. This is a mature exploration of two emotionally stunted adults trying to figure out if they're brave enough to want something real.</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- OUT OF LINE -->
-            <div class="story-section">
+            <section class="story-section" id="outofline-section">
                 <div class="story-header" onclick="toggleStory('outofline')">
                     <div class="story-title"><span style="color: #95bdd1"><b>O</b></span><span style="color: #a8beae"><b>U</b></span><span style="color: #bcbf8b"><b>T</b></span><b> </b><span style="color: #e4c146"><b>O</b></span><span style="color: #f8c224"><b>F</b></span><b> </b><span style="color: #d0c069"><b>L</b></span><span style="color: #bcbf8b"><b>I</b></span><span style="color: #a8beae"><b>N</b></span><span style="color: #95bdd1"><b>E</b></span></div>
-                    <span class="story-arrow" id="outofline-arrow">▼</span>
+                    <span class="story-arrow">&#9662;</span>
                 </div>
-                <div class="story-content" id="outofline-content">
+                <div class="story-content">
                     <div class="story-content-inner">
                         <p>This story explores an intensely <b>toxic</b> dynamic between two individuals whose psychological wounds create a dangerous attraction. Their relationship begins in the worst possible way—through power struggles, control, and harmful behaviors that stem from deep-seated issues neither of them fully understands. What starts as mutual antagonism and unhealthy obsession <i>will</i> eventually evolve into something resembling love, but make no mistake: their journey is dark, problematic, and often disturbing. This is <b>not</b> a story that romanticizes toxicity, but rather examines how damaged people can simultaneously destroy and rebuild each other.</p>
                         <p>This story contains explicit content including dubious-consensual situations, reproductive coercion, power imbalances, and toxic coping mechanisms. These elements are presented as the <b>harmful behaviors they are, not as romantic gestures.</b> The characters will make terrible decisions that hurt themselves and each other before any growth occurs.</p>
@@ -997,79 +1000,142 @@
                         <h1><b>Take care of yourselves. Read at your own discretion.</b></h1>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
+
+        </main>
+
+        <footer class="footer">&#10022; &#10022; &#10022;</footer>
+        <button class="to-top" id="toTop" aria-label="back to top">&uarr;</button>
     </div>
 
     <script>
-        function toggleStory(storyId) {
-            const content = document.getElementById(storyId + '-content');
-            const arrow = document.getElementById(storyId + '-arrow');
-            
-            if (content.classList.contains('open')) {
-                content.classList.remove('open');
-                content.style.maxHeight = '0';
-                arrow.style.transform = 'rotate(0deg)';
-                arrow.textContent = '▼';
-            } else {
-                // Close all other sections
-                const allContents = document.querySelectorAll('.story-content');
-                const allArrows = document.querySelectorAll('.story-arrow');
-                
-                allContents.forEach(c => {
-                    c.classList.remove('open');
-                    c.style.maxHeight = '0';
-                });
-                
-                allArrows.forEach(a => {
-                    a.style.transform = 'rotate(0deg)';
-                    a.textContent = '▼';
-                });
-                
-                // Open the clicked section
-                content.classList.add('open');
-                content.style.maxHeight = content.scrollHeight + 'px';
-                arrow.style.transform = 'rotate(180deg)';
-                arrow.textContent = '▲';
+        var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var scrollMode = prefersReduced ? 'auto' : 'smooth';
+
+        // one open card at a time, same as the old page —
+        // plus we scroll the opened card into view so it doesn't get lost
+        function toggleStory(id) {
+            var section = document.getElementById(id + '-section');
+            var wasOpen = section.classList.contains('open');
+
+            document.querySelectorAll('.story-section.open').forEach(function(s) {
+                s.classList.remove('open');
+                s.querySelector('.story-header').setAttribute('aria-expanded', 'false');
+            });
+            document.querySelectorAll('.fic-nav-chip.active').forEach(function(c) { c.classList.remove('active'); });
+
+            if (!wasOpen) {
+                section.classList.add('open');
+                section.querySelector('.story-header').setAttribute('aria-expanded', 'true');
+                var chip = document.querySelector('.fic-nav-chip[data-id="' + id + '"]');
+                if (chip) chip.classList.add('active');
+                // wait for the collapse above to finish so we land in the right place
+                setTimeout(function() {
+                    section.scrollIntoView({ behavior: scrollMode, block: 'start' });
+                }, prefersReduced ? 0 : 470);
             }
         }
 
-        function toggleSpoiler(spoilerId) {
-            const content = document.getElementById(spoilerId + '-content');
-            const arrow = document.getElementById(spoilerId + '-arrow');
-            
-            if (content.classList.contains('open')) {
-                content.classList.remove('open');
-                content.style.maxHeight = '0';
-                arrow.style.transform = 'rotate(0deg)';
-                arrow.textContent = '▼';
-            } else {
-                content.classList.add('open');
-                content.style.maxHeight = content.scrollHeight + 'px';
-                arrow.style.transform = 'rotate(180deg)';
-                arrow.textContent = '▲';
-            }
+        function toggleSpoiler(id) {
+            var box = document.getElementById(id + '-box');
+            box.classList.toggle('open');
+            box.querySelector('.spoiler-header').setAttribute('aria-expanded', box.classList.contains('open'));
         }
-        
-        // Add smooth scrolling animation for content expansion
-        document.querySelectorAll('.story-content').forEach(content => {
-            content.style.transition = 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-        });
-        
-        document.querySelectorAll('.story-arrow').forEach(arrow => {
-            arrow.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-        });
 
-        document.querySelectorAll('.spoiler-content').forEach(content => {
-            content.style.transition = 'max-height 0.3s ease';
-        });
-        
-        document.querySelectorAll('.spoiler-arrow').forEach(arrow => {
-            arrow.style.transition = 'transform 0.3s ease';
+        document.addEventListener('DOMContentLoaded', function() {
+
+            if (typeof DESK_URL === 'string' && DESK_URL.trim()) {
+                var link = document.getElementById('deskLink');
+                link.href = DESK_URL;
+                link.style.display = 'inline-block';
+            }
+
+            var sections = Array.prototype.slice.call(document.querySelectorAll('.story-section'));
+
+            // build the quick-jump chips from whatever sections exist
+            var nav = document.getElementById('ficNav');
+            sections.forEach(function(section) {
+                var id = section.id.replace(/-section$/, '');
+                var title = section.querySelector('.story-title').textContent.trim().toLowerCase();
+                var chip = document.createElement('button');
+                chip.className = 'fic-nav-chip';
+                chip.setAttribute('data-id', id);
+                chip.textContent = (typeof SHORT_NAMES === 'object' && SHORT_NAMES[id]) || title;
+                chip.addEventListener('click', function() {
+                    if (!section.classList.contains('open')) {
+                        toggleStory(id);
+                    } else {
+                        section.scrollIntoView({ behavior: scrollMode, block: 'start' });
+                    }
+                });
+                nav.appendChild(chip);
+            });
+
+            sections.forEach(function(section) {
+                var id = section.id.replace(/-section$/, '');
+                var header = section.querySelector('.story-header');
+                var inner = section.querySelector('.story-content-inner');
+
+                // keyboard access for the tap targets
+                header.setAttribute('role', 'button');
+                header.setAttribute('tabindex', '0');
+                header.setAttribute('aria-expanded', 'false');
+                header.addEventListener('keydown', function(ev) {
+                    if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); toggleStory(id); }
+                });
+
+                // most people come for the warnings list, so if this fic's notes
+                // have one, give them a shortcut straight to it
+                var anchor = null;
+                var bolds = inner.querySelectorAll('b, strong');
+                for (var i = 0; i < bolds.length; i++) {
+                    if (/content warnings/i.test(bolds[i].textContent)) { anchor = bolds[i]; break; }
+                }
+                if (anchor) {
+                    var target = anchor.closest('p') || anchor;
+                    target.classList.add('warnings-anchor');
+                    var jump = document.createElement('button');
+                    jump.className = 'jump-warnings';
+                    jump.type = 'button';
+                    jump.textContent = 'skip to the content warnings \u2193';
+                    jump.addEventListener('click', function() {
+                        target.scrollIntoView({ behavior: scrollMode, block: 'start' });
+                    });
+                    inner.insertBefore(jump, inner.firstChild);
+                }
+
+                // a close button at the bottom so nobody has to scroll back up
+                var close = document.createElement('button');
+                close.className = 'close-card';
+                close.type = 'button';
+                close.textContent = 'close these notes \u2191';
+                close.addEventListener('click', function() {
+                    toggleStory(id);
+                    setTimeout(function() {
+                        section.scrollIntoView({ behavior: scrollMode, block: 'start' });
+                    }, prefersReduced ? 0 : 470);
+                });
+                inner.appendChild(close);
+            });
+
+            document.querySelectorAll('.spoiler-header').forEach(function(h) {
+                h.setAttribute('role', 'button');
+                h.setAttribute('tabindex', '0');
+                h.setAttribute('aria-expanded', 'false');
+                h.addEventListener('keydown', function(ev) {
+                    if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); h.click(); }
+                });
+            });
+
+            // back-to-top once you're deep in someone's trauma warnings
+            var toTop = document.getElementById('toTop');
+            window.addEventListener('scroll', function() {
+                toTop.classList.toggle('show', window.scrollY > 600);
+            }, { passive: true });
+            toTop.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: scrollMode });
+            });
         });
     </script>
 </body>
 </html>
-                    </div>
-                </div>
-            </div>
